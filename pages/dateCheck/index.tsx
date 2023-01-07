@@ -4,8 +4,8 @@ import dayjs from 'dayjs'
 import { useEffect, useState, } from 'react'
 
 export default function Home() {
-  const reach = '2023-01-01 00:00:00'
-
+  const reach = dayjs().add(1, 'year').format('YYYY-MM-DD HH:mm:ss')
+  console.log(reach, '<<<')
   const [date, setDate] = useState(dayjs().format('YYYY-MM-DD HH:mm:ss.SSS'));
   const [reachDate, setReachDate] = useState(dayjs(reach).format('YYYY-MM-DD HH:mm:ss.SSS'));
   const [diffDate, setDiffDate] = useState(0)

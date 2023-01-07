@@ -18,6 +18,9 @@ export default function Home() {
           <li>
             <Link href="/dateCheck">날짜</Link>
           </li>
+          <li>
+            <Link href="/anyQuestion">무엇이든 물어보세요</Link>
+          </li>
         </ul>
       </main>
 
