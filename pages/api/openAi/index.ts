@@ -12,7 +12,6 @@ function generatePrompt(animal: string) {
 }
 
 export default function handler(req, res) {
-  // console.log(req.method, "<<<<");
   if (req.method === "GET") {
     return res.json({ data: "hi" });
   }
