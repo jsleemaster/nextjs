@@ -1,19 +1,19 @@
 import Head from "next/head";
-import * as Config from "config";
 import { useState, FormEvent } from "react";
+import { useAiFetch } from "./useFetch";
 
 export default function AnyQuestion() {
   const [question, setQuestion] = useState<string>("");
   const [answer, setAnswer] = useState<string>("");
 
-  const getAnswer = async (e: FormEvent<HTMLFormElement>) => {
+  const GetAnswer = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    const res = await fetch(`${Config.server}/api/openAi`, {
-      method: "POST",
-      headers: { Authorization: `${Config.chatAPIKey}` },
-    });
-    return res.json();
+    try {
+      const res = await useAiFetch("openAi", question);
+      return res.json();
+    } catch (error) {
+      return error;
+    }
   };
 
   return (
@@ -22,7 +22,7 @@ export default function AnyQuestion() {
         <title>무엇이든 물어보세요!</title>
       </Head>
       <div>
-        <form onSubmit={getAnswer}>
+        <form onSubmit={GetAnswer}>
           <input
             type="text"
             placeholder="질문을 입력해주세요."
