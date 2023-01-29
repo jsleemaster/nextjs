@@ -1,21 +1,21 @@
 import Head from "next/head";
-import { useState, FormEvent, Suspense } from "react";
+import { useState, FormEvent, Suspense, useEffect } from "react";
 import { useAiFetch } from "hooks/anyQuestion/useFetch";
+import Loading from "app/loading";
 
 export default function AnyQuestion() {
   const [question, setQuestion] = useState<string>("");
-  const [answer, setAnswer] = useState<string>("");
 
   const GetAnswer = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(question, "이거 찍ㅎ");
-    try {
-      const res = await useAiFetch("openAi", question);
-      console.log(res);
-      return res.json();
-    } catch (error) {
-      return error;
-    }
+    // try {
+    setQuestion(`Human: ${question}`);
+    const res = await useAiFetch("openAi", question);
+    const { data } = await res.json();
+    console.log(data);
+    // } catch (error) {
+    //   return error;
+    // }
   };
 
   return (
@@ -23,7 +23,7 @@ export default function AnyQuestion() {
       <Head>
         <title>무엇이든 물어보세요!</title>
       </Head>
-      <Suspense fallback={<div>로딩중...</div>}>
+      <Suspense fallback={<Loading />}>
         <div>
           <form onSubmit={GetAnswer}>
             <input

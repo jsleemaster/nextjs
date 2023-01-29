@@ -1,31 +1,40 @@
 import { NextApiRequest, NextApiResponse } from "next";
+import { openai } from "config";
 interface Prompt {
-  model: String;
-  temperature: Number;
-  max_tokens: Number;
-  top_p: Number;
-  frequency_penalty: Number;
-  presence_penalty: Number;
-  data: String;
+  model: string;
+  temperature: number;
+  max_tokens: number;
+  top_p: number;
+  frequency_penalty: number;
+  presence_penalty: number;
+  prompt: string;
+  stop: Array<string>;
 }
 
-const generatePrompt = (data: Prompt) => {
-  console.log(data, "<<<<<<<<");
-  return data;
+const generatePrompt = async (prompt: Prompt) => {
+  const reuslt = {
+    status: false,
+    data: null,
+  };
+  const AiResponse = await openai.createCompletion(prompt);
+  if (AiResponse.data.choices[0]) {
+    reuslt.status = true;
+    reuslt.data = AiResponse.data.choices[0];
+    return reuslt;
+  }
 };
-type Method = "GET" | "POST" | "PUT" | "DELETE";
-type Http = [Method, string];
 
-interface EndPoint {
-  openAi: Http;
-}
-
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const requestMethod = req.method;
   const body = JSON.parse(req.body);
   switch (requestMethod) {
     case "POST":
-      return res.status(200).json(generatePrompt(body));
+      return res.status(200).json({
+        data: await generatePrompt(body),
+      });
   }
   return res.status(404).json({ message: "Not Found" });
 }
