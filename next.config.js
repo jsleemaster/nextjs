@@ -8,9 +8,6 @@ const nextConfig = {
     config.experiments = { ...config.experiments, topLevelAwait: true }
     return config
   },
-  api: {
-    bodyParser: false
-  }
 }
 
 module.exports = nextConfig

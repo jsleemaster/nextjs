@@ -5,19 +5,28 @@ import Loading from "app/loading";
 
 export default function AnyQuestion() {
   const [question, setQuestion] = useState<string>("");
+  const [promt, setPromt] = useState<string>("");
+  const [QnaList, setQnaListList] = useState<Array<string>>([]);
 
   const GetAnswer = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // try {
-    setQuestion(`Human: ${question}`);
-    const res = await useAiFetch("openAi", question);
-    const { data } = await res.json();
-    console.log(data);
-    // } catch (error) {
-    //   return error;
-    // }
+    setPromt(promt + ` Human: ${question}`);
   };
 
+  useEffect(() => {
+    async function fetchData() {
+      if (question) {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        const res = await useAiFetch("openAi", promt);
+        setQuestion("");
+        const { data } = await res.json();
+        setPromt(promt + `${data.text}`);
+        // setQnaListList([...QnaList, data.text]);
+      }
+    }
+    fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [promt]);
   return (
     <>
       <Head>
@@ -34,6 +43,11 @@ export default function AnyQuestion() {
             />
             <button type="submit"> 확인 </button>
           </form>
+          <ul>
+            {QnaList.map((v, i) => {
+              return <li key={i}>{v}</li>;
+            })}
+          </ul>
         </div>
       </Suspense>
     </>

@@ -7,12 +7,11 @@ const DEFAULT_PARAMS = {
   prompt: "",
   frequency_penalty: 0,
   presence_penalty: 0.6,
-  stop: [" Human:", " AI:"],
+  stop: [" Human:", " Robot:"],
 };
 
 export const useAiFetch = async (url: string, prompt: string) => {
   const params = { ...DEFAULT_PARAMS, prompt };
-
   return await fetch(`${Config.server}/api/${url}`, {
     method: "POST",
     headers: {

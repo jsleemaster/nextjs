@@ -14,12 +14,12 @@ interface Prompt {
 const generatePrompt = async (prompt: Prompt) => {
   const reuslt = {
     status: false,
-    data: null,
+    text: null,
   };
   const AiResponse = await openai.createCompletion(prompt);
   if (AiResponse.data.choices[0]) {
     reuslt.status = true;
-    reuslt.data = AiResponse.data.choices[0];
+    reuslt.text = AiResponse.data.choices[0].text;
     return reuslt;
   }
 };
@@ -29,7 +29,8 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const requestMethod = req.method;
-  const body = JSON.parse(req.body);
+  const body = JSON.parse(req?.body);
+
   switch (requestMethod) {
     case "POST":
       return res.status(200).json({
