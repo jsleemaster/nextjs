@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useState, FormEvent, Suspense, useEffect } from "react";
+import { useState, FormEvent, Suspense, useEffect, useCallback } from "react";
 import { useAiFetch } from "hooks/anyQuestion/useFetch";
 import Loading from "app/loading";
 
@@ -8,10 +8,10 @@ export default function AnyQuestion() {
   const [promt, setPromt] = useState<string>("");
   const [QnaList, setQnaListList] = useState<Array<string>>([]);
 
-  const GetAnswer = async (e: FormEvent<HTMLFormElement>) => {
+  const GetAnswer = useCallback(async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setPromt(promt + ` Human: ${question}`);
-  };
+  }, []);
 
   useEffect(() => {
     async function fetchData() {
