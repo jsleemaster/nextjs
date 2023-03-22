@@ -707,15 +707,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stitches/react@npm:^1.2.8":
-  version: 1.2.8
-  resolution: "@stitches/react@npm:1.2.8"
-  peerDependencies:
-    react: ">= 16.3.0"
-  checksum: 029795323cdedb5599ec0636526fc233b2cf41fa9c1f4a704b1f7f457c6170053384a7430afed45e25f73e348d7c391cf1379bc079943cd9cad44302234a5244
-  languageName: node
-  linkType: hard
-
 "@swc/helpers@npm:0.4.14":
   version: 0.4.14
   resolution: "@swc/helpers@npm:0.4.14"
@@ -3265,7 +3256,6 @@ __metadata:
     "@emotion/styled": ^11.10.6
     "@fontsource/roboto": ^4.5.8
     "@mui/material": ^5.11.14
-    "@stitches/react": ^1.2.8
     "@types/next": ^9.0.0
     "@types/node": 18.11.18
     "@types/react": ^18.0.26

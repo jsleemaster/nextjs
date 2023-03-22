@@ -14,12 +14,12 @@ interface Prompt {
 const generatePrompt = async (prompt: Prompt) => {
   const reuslt = {
     status: false,
-    text: null,
+    text: "",
   };
   const AiResponse = await openai.createCompletion(prompt);
   if (AiResponse.data.choices[0]) {
     reuslt.status = true;
-    reuslt.text = AiResponse.data.choices[0].text;
+    reuslt.text = AiResponse.data.choices[0]?.text;
     return reuslt;
   }
 };

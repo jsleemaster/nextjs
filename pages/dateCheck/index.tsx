@@ -1,6 +1,33 @@
 import dateStyles from "styles/dateCheck.module.css";
 import dayjs from "dayjs";
 import { useEffect, useState } from "react";
+import styled from "@emotion/styled";
+
+const Container = styled.div`
+  padding: 0 2rem;
+`;
+
+const Main = styled.main`
+  min-height: 100vh;
+  padding: 4rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const DateSpan = styled.span`
+  font-size: 2rem;
+`;
+
+const NextDateSpan = styled.span`
+  font-size: 3rem;
+  color: brown;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+`;
 
 export default function DateCheck() {
   const nextYear = dayjs()
@@ -26,17 +53,17 @@ export default function DateCheck() {
   }, [date]);
 
   return (
-    <div className={dateStyles.container}>
-      <main className={dateStyles.main}>
-        <span className={dateStyles.date}>{date}</span>
+    <Container>
+      <Main>
+        <DateSpan className={dateStyles.date}>{date}</DateSpan>
         {diffDate < 0 && (
-          <span className={dateStyles.next_year_date}>
+          <NextDateSpan className={dateStyles.next_year_date}>
             {dayjs(nextYear).format("YYYY")}년 까지 남은 시간{" "}
             <b>D-{dayjs(nextYear).diff(date, "day")}</b>
             {nextYearTime}
-          </span>
+          </NextDateSpan>
         )}
-      </main>
-    </div>
+      </Main>
+    </Container>
   );
 }
