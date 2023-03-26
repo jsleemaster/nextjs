@@ -6,7 +6,7 @@ import {
   Action,
 } from "@reduxjs/toolkit";
 import { createWrapper } from "next-redux-wrapper";
-import themeReducer from "./actions/theme";
+import themeReducer from "./actions/theme";
 import logger from "redux-logger";
 
 export type AppStore = ReturnType<typeof makeStore>;
