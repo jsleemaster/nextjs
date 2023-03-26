@@ -1,4 +1,3 @@
-import dateStyles from "styles/dateCheck.module.css";
 import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
@@ -55,9 +54,9 @@ export default function DateCheck() {
   return (
     <Container>
       <Main>
-        <DateSpan className={dateStyles.date}>{date}</DateSpan>
+        <DateSpan>{date}</DateSpan>
         {diffDate < 0 && (
-          <NextDateSpan className={dateStyles.next_year_date}>
+          <NextDateSpan>
             {dayjs(nextYear).format("YYYY")}년 까지 남은 시간{" "}
             <b>D-{dayjs(nextYear).diff(date, "day")}</b>
             {nextYearTime}

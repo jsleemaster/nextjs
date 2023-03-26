@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-const MainLayout = () => {
+const SideBar = () => {
   return (
-    <main className="main">
+    <>
       <ul>
         <li>
           <Link href="/">Home</Link>
@@ -16,8 +16,8 @@ const MainLayout = () => {
           </Link>
         </li>
       </ul>
-    </main>
+    </>
   );
 };
 
-export default MainLayout;
+export default SideBar;

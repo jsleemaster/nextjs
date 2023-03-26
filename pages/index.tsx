@@ -1,13 +1,13 @@
 import Head from "next/head";
-import MainLayout from "components/layouts/MainLayout";
+import MainLayout from "components/layouts/Main/Layout";
 
-export default function Home() {
+export default function Index() {
   return (
-    <div className="container">
+    <>
       <Head>
         <title>JsLeeMaster</title>
       </Head>
       <MainLayout></MainLayout>
-    </div>
+    </>
   );
 }

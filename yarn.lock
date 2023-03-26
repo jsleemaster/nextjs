@@ -76,7 +76,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.21.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.7":
+"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.20.7, @babel/runtime@npm:^7.21.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.7, @babel/runtime@npm:^7.9.2":
   version: 7.21.0
   resolution: "@babel/runtime@npm:7.21.0"
   dependencies:
@@ -690,6 +690,18 @@ __metadata:
   version: 2.11.6
   resolution: "@popperjs/core@npm:2.11.6"
   checksum: 47fb328cec1924559d759b48235c78574f2d71a8a6c4c03edb6de5d7074078371633b91e39bbf3f901b32aa8af9b9d8f82834856d2f5737a23475036b16817f0
+  languageName: node
+  linkType: hard
+
+"@redux-devtools/extension@npm:^3.2.5":
+  version: 3.2.5
+  resolution: "@redux-devtools/extension@npm:3.2.5"
+  dependencies:
+    "@babel/runtime": ^7.20.7
+    immutable: ^4.2.2
+  peerDependencies:
+    redux: ^3.1.0 || ^4.0.0
+  checksum: c89680e1af8bd47a0250478b491a79a55bc0d71206f5ab95a83fd05c7d815bdaef5703defb7b571f07fc8bd2c6d4e8da6fc0cfd09e7fe03e994f9070c15fd08d
   languageName: node
   linkType: hard
 
@@ -2594,6 +2606,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"immutable@npm:^4.2.2":
+  version: 4.3.0
+  resolution: "immutable@npm:4.3.0"
+  checksum: bbd7ea99e2752e053323543d6ff1cc71a4b4614fa6121f321ca766db2bd2092f3f1e0a90784c5431350b7344a4f792fa002eac227062d59b9377b6c09063b58b
+  languageName: node
+  linkType: hard
+
 "import-fresh@npm:^3.0.0, import-fresh@npm:^3.2.1":
   version: 3.3.0
   resolution: "import-fresh@npm:3.3.0"
@@ -3109,6 +3128,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"next-redux-wrapper@npm:^8.1.0":
+  version: 8.1.0
+  resolution: "next-redux-wrapper@npm:8.1.0"
+  peerDependencies:
+    next: ">=9"
+    react: "*"
+    react-redux: "*"
+  checksum: 74fa21355094cf678a7aa24e3baa98328746e42fe41d3e2a779d7d06d025bf980b71f313805300d854c320904ee7e72a3772842e2b023df70d2571dfa998c2e7
+  languageName: node
+  linkType: hard
+
 "next@npm:*":
   version: 13.1.1
   resolution: "next@npm:13.1.1"
@@ -3256,6 +3286,7 @@ __metadata:
     "@emotion/styled": ^11.10.6
     "@fontsource/roboto": ^4.5.8
     "@mui/material": ^5.11.14
+    "@redux-devtools/extension": ^3.2.5
     "@types/next": ^9.0.0
     "@types/node": 18.11.18
     "@types/react": ^18.0.26
@@ -3271,9 +3302,12 @@ __metadata:
     eslint-plugin-react: ^7.32.2
     eslint-plugin-react-hooks: ^4.6.0
     next: ^13.2.3
+    next-redux-wrapper: ^8.1.0
     openai: ^3.1.0
     react: 18.2.0
     react-dom: 18.2.0
+    redux: ^4.2.1
+    redux-thunk: ^2.4.2
     typescript: ^4.9.5
   languageName: unknown
   linkType: soft
@@ -3612,6 +3646,24 @@ __metadata:
   dependencies:
     loose-envify: ^1.1.0
   checksum: 88e38092da8839b830cda6feef2e8505dec8ace60579e46aa5490fc3dc9bba0bd50336507dc166f43e3afc1c42939c09fe33b25fae889d6f402721dcd78fca1b
+  languageName: node
+  linkType: hard
+
+"redux-thunk@npm:^2.4.2":
+  version: 2.4.2
+  resolution: "redux-thunk@npm:2.4.2"
+  peerDependencies:
+    redux: ^4
+  checksum: c7f757f6c383b8ec26152c113e20087818d18ed3edf438aaad43539e9a6b77b427ade755c9595c4a163b6ad3063adf3497e5fe6a36c68884eb1f1cfb6f049a5c
+  languageName: node
+  linkType: hard
+
+"redux@npm:^4.2.1":
+  version: 4.2.1
+  resolution: "redux@npm:4.2.1"
+  dependencies:
+    "@babel/runtime": ^7.9.2
+  checksum: f63b9060c3a1d930ae775252bb6e579b42415aee7a23c4114e21a0b4ba7ec12f0ec76936c00f546893f06e139819f0e2855e0d55ebfce34ca9c026241a6950dd
   languageName: node
   linkType: hard
 
