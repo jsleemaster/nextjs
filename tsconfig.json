@@ -2,12 +2,11 @@
   "compilerOptions": {
     "target": "es2017",
     "allowSyntheticDefaultImports": true,
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "baseUrl": "./",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "paths": {
+      "@hooks/*": ["hooks/*"]
+    },
+    "baseUrl": ".",
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
