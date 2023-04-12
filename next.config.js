@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  pageExtensions: ['jsx', 'js', 'tsx', 'ts'],
+  pageExtensions: ['tsx', 'js',],
   experimental: { appDir: false },
   webpack(config) {
     config.experiments = { ...config.experiments, topLevelAwait: true }
