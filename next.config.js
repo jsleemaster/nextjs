@@ -4,10 +4,8 @@ const nextConfig = {
   swcMinify: true,
   pageExtensions: ['tsx', 'js',],
   experimental: { appDir: false },
-  webpack(config) {
-    config.experiments = { ...config.experiments, topLevelAwait: true }
-    return config
-  },
+  output: 'standalone',
+  poweredByHeader: false,
 }
 
 module.exports = nextConfig

@@ -3,8 +3,19 @@
     "target": "es2017",
     "allowSyntheticDefaultImports": true,
     "lib": ["dom", "dom.iterable", "esnext"],
+    "declaration": true /* Generate .d.ts files from TypeScript and JavaScript files in your project. */,
+    "declarationMap": true,
+    "removeComments": true,
     "rootDir": "./",
     "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["components/*"],
+      "@/store/*": ["store/*"],
+      "@/hooks/*": ["hooks/*"],
+      "@/types/*": ["types/*"],
+      "@/utils/*": ["utils/*"],
+      "@/api/*": ["api/*"]
+    },
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -24,15 +35,17 @@
     ],
     "strictNullChecks": true
   },
-  "paths": {
-    "@/components/*": ["components/*"],
-    "@/store/*": ["store/*"],
-    "@/hooks/*": ["hooks/*"],
-    "@/types/*": ["types/*"],
-    "@/utils/*": ["utils/*"],
-    "@/api/*": ["api/*"]
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+
+  "include": [
+    "next-env.d.ts",
+    "**/**/*.ts",
+    "**/**/*.tsx",
+    "**/**/**/*.tsx",
+    "**/**/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
   "exclude": ["node_modules"]
 }
 
