@@ -1,18 +1,20 @@
 import Link from "next/link";
+import { useAppSelector } from "@/hooks/reduxHooks";
 
 const SideBar = () => {
+  const Items = useAppSelector((state) => state.portFolio.items);
+
   return (
     <>
       <ul>
-        <li>
-          <Link href="/">Home</Link>
-        </li>
-        <li>
-          <Link href="/dateCheck">날짜</Link>
-        </li>
-        <li>
-          <Link href="/anyQuestion">무엇이든 물어보세요</Link>
-        </li>
+        {Items &&
+          Items.map((portFolio) => {
+            return (
+              <li key={portFolio.id}>
+                <Link href={`/${portFolio.href}`}>{portFolio.name}</Link>
+              </li>
+            );
+          })}
       </ul>
     </>
   );

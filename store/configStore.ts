@@ -1,3 +1,6 @@
+import theme from "./actions/theme";
+import portFolio from "./actions/portfoilo";
+
 import {
   combineReducers,
   configureStore,
@@ -6,7 +9,6 @@ import {
   Action,
 } from "@reduxjs/toolkit";
 import { createWrapper } from "next-redux-wrapper";
-import theme from "./actions/theme";
 import logger from "redux-logger";
 
 export type AppStore = ReturnType<typeof makeStore>;
@@ -22,6 +24,7 @@ export type AppThunk<ReturnType = void> = ThunkAction<
 const reducer = (state: any, action: PayloadAction<any>) => {
   return combineReducers({
     theme,
+    portFolio,
   })(state, action);
 };
 
