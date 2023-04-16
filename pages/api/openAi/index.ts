@@ -12,7 +12,7 @@ interface Prompt {
 }
 
 const generatePrompt = async (prompt: Prompt) => {
-  const reuslt = {
+  const reuslt: { status: boolean; text: string | undefined } = {
     status: false,
     text: "",
   };
