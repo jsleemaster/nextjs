@@ -1636,14 +1636,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react@npm:^1.1.7":
-  version: 1.6.1
-  resolution: "eslint-plugin-react@npm:1.6.1"
-  checksum: e8d0e986fecf72090b413d57f34db3b0baa7174c16ac3d26d57437e2af4d8d6f26855c66793824c2784650db49d8f3a464567fadce4ca0ec932343c1e3d6719a
-  languageName: node
-  linkType: hard
-
-"eslint-plugin-react@npm:^7.31.7":
+"eslint-plugin-react@npm:^7.31.7, eslint-plugin-react@npm:^7.32.2":
   version: 7.32.2
   resolution: "eslint-plugin-react@npm:7.32.2"
   dependencies:
@@ -2800,7 +2793,7 @@ __metadata:
     eslint-config-next: 13.3.0
     eslint-config-prettier: ^8.7.0
     eslint-plugin-import: ^2.27.5
-    eslint-plugin-react: ^1.1.7
+    eslint-plugin-react: ^7.32.2
     next: ^13.2.3
     next-redux-wrapper: ^8.1.0
     openai: ^3.1.0
