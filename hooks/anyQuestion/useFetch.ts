@@ -1,4 +1,6 @@
 import * as Config from "config";
+const chatAPIKey = process.env.chatAPIKey;
+
 const DEFAULT_PARAMS = {
   model: "text-davinci-003",
   temperature: 0.9,
@@ -16,7 +18,7 @@ export const useAiFetch = async (url: string, prompt: string) => {
     method: "POST",
     headers: {
       ContentType: "application/json",
-      Authorization: `Bearer ${Config.chatAPIKey}`,
+      Authorization: `Bearer ${chatAPIKey}`,
     },
     cache: "no-store",
     body: JSON.stringify(params),
