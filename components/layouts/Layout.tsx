@@ -5,7 +5,7 @@ import Header from "./Header";
 
 const MainLayout = () => {
   return (
-    <Grid>
+    <Grid sx={{ width: "100%", height: "100vh" }}>
       <Header />
       <SideBar />
       <main className="main"></main>
