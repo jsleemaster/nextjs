@@ -1,32 +1,6 @@
 import dayjs from "dayjs";
 import { useEffect, useState } from "react";
-import styled from "@emotion/styled";
-
-const Container = styled.div`
-  padding: 0 2rem;
-`;
-
-const Main = styled.main`
-  min-height: 100vh;
-  padding: 4rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const DateSpan = styled.span`
-  font-size: 2rem;
-`;
-
-const NextDateSpan = styled.span`
-  font-size: 3rem;
-  color: brown;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-`;
+import { Container, Main, DateSpan, NextDateSpan } from "./style";
 
 export default function DateCheck() {
   const nextYear = dayjs()
