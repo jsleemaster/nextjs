@@ -1,42 +1,45 @@
-import { red } from "@mui/material/colors";
+import { red, blue } from "@mui/material/colors";
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
-let lightCustom = createTheme({
-  palette: {
-    custom: {
-      light: "#ffa726",
-      main: "#f57c00",
-      dark: "#ef6c00",
+const lightCustom = responsiveFontSizes(
+  createTheme({
+    palette: {
+      custom: {
+        light: blue[50],
+        main: "#f57c00",
+        dark: "#ef6c00",
+      },
+      text: {
+        primary: "#000",
+      },
     },
-  },
-  status: {
-    danger: red[700],
-  },
-});
+    status: {
+      danger: blue[700],
+    },
+  })
+);
 
-lightCustom = responsiveFontSizes(lightCustom);
-
-let darkCustom = createTheme({
-  palette: {
-    mode: "dark",
-    background: {
-      paper: "#222",
+const darkCustom = responsiveFontSizes(
+  createTheme({
+    palette: {
+      mode: "dark",
+      background: {
+        paper: "#222",
+      },
+      text: {
+        primary: "#fff",
+      },
+      custom: {
+        light: "#ffa726",
+        main: "#f57c00",
+        dark: "#ef6c00",
+      },
     },
-    text: {
-      primary: "#fff",
+    status: {
+      danger: red[700],
     },
-    custom: {
-      light: "#ffa726",
-      main: "#f57c00",
-      dark: "#ef6c00",
-    },
-  },
-  status: {
-    danger: red[700],
-  },
-});
-
-darkCustom = responsiveFontSizes(darkCustom);
+  })
+);
 
 export const lightTheme = lightCustom;
 
