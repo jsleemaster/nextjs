@@ -1,6 +1,7 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { useAppDispatch } from "hooks/reduxHooks";
 import { toggleTheme } from "store/actions/theme";
+import { searchPortFolio } from "@/store/actions/portfoilo";
 
 /* mui */
 import { useTheme } from "@mui/material/styles";
@@ -23,6 +24,13 @@ const Header = () => {
 
   const { palette } = useTheme();
 
+  const [searchText, setSearchText] = useState("");
+  const handleText = (
+    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => {
+    dispatch(searchPortFolio(e.target.value));
+    setSearchText(e.target.value);
+  };
   return (
     <AppBar position="static">
       <Toolbar>
@@ -44,6 +52,8 @@ const Header = () => {
           <StyledInputBase
             placeholder="검색"
             inputProps={{ "aria-label": "search" }}
+            value={searchText}
+            onChange={(e) => handleText(e)}
           />
         </Search>
       </Toolbar>

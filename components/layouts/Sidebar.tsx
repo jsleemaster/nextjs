@@ -5,7 +5,7 @@ import Skeleton from "@mui/material/Skeleton";
 import Typography from "@mui/material/Typography";
 
 const SideBar = () => {
-  const Items = useAppSelector((state) => state.portFolio.items);
+  const Items = useAppSelector((state) => state.portFolio.filterItems);
   const router = useRouter();
   return (
     <SideUl>
