@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useAppDispatch } from "hooks/reduxHooks";
 import { toggleTheme } from "store/actions/theme";
 import { searchPortFolio } from "@/store/actions/portfoilo";
@@ -15,22 +15,28 @@ import SearchIcon from "@mui/icons-material/Search";
 
 /* style */
 import { Search, StyledInputBase, SearchIconWrapper } from "./Header.style";
-
 const Header = () => {
   const dispatch = useAppDispatch();
   const onToggleTheme = useCallback(() => {
     return dispatch(toggleTheme());
   }, [dispatch]);
-
   const { palette } = useTheme();
-
   const [searchText, setSearchText] = useState("");
-  const handleText = (
-    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
-  ) => {
-    dispatch(searchPortFolio(e.target.value));
-    setSearchText(e.target.value);
-  };
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const handleText = useCallback(
+    (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+      setSearchText(e.target.value);
+    },
+    []
+  );
+  useEffect(() => {
+    if (timerRef.current !== null) {
+      clearTimeout(timerRef.current);
+    }
+    timerRef.current = setTimeout(() => {
+      dispatch(searchPortFolio(searchText));
+    }, 100);
+  }, [searchText, timerRef.current]);
   return (
     <AppBar position="static">
       <Toolbar>
