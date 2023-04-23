@@ -7,10 +7,13 @@ export default function AnyQuestion() {
   const [promt, setPromt] = useState<string>("");
   const [QnaList, setQnaListList] = useState<Array<string>>([]);
 
-  const GetAnswer = useCallback(async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setPromt(promt + ` Human: ${question}`);
-  }, []);
+  const GetAnswer = useCallback(
+    async (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      setPromt(promt + ` Human: ${question}`);
+    },
+    [promt, question]
+  );
 
   useEffect(() => {
     async function fetchData() {
@@ -20,7 +23,7 @@ export default function AnyQuestion() {
         setQuestion("");
         const { data } = await res.json();
         setPromt(promt + `${data.text}`);
-        // setQnaListList([...QnaList, data.text]);
+        setQnaListList([...QnaList, data.text]);
       }
     }
     fetchData();

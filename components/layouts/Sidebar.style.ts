@@ -2,7 +2,7 @@ import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
 
-export const SideUl = styled(Box)(({ theme }) => ({
+export const SideUl = styled(Box)(() => ({
   display: "flex",
   flexWrap: "wrap",
 }));

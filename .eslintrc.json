@@ -1,17 +1,14 @@
 {
   "root": false,
   "extends": [
-    "next",
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "eslint:recommended",
+    "next"
   ],
-  "plugins": [
-    "eslint-config-next",
-    "eslint-config-react",
-    "@typescript-eslint/eslint-plugin"
-  ],
+  "plugins": ["@typescript-eslint/eslint-plugin", "eslint-plugin-simple-import-sort"],
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module",

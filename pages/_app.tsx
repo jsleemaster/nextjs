@@ -7,15 +7,15 @@ import Head from "next/head.js";
 import { wrapper } from "store/configStore";
 import { Provider } from "react-redux";
 import { useAppSelector } from "hooks/reduxHooks";
-export interface MyAppProps extends AppProps {
-  // emotionCache?: EmotionCache;
-}
+// export interface MyAppProps extends AppProps {
+//   // emotionCache?: EmotionCache;
+// }
 const AppContainer = ({ children }) => {
   const themeType = useAppSelector((state) => state.theme.darkTheme);
   const [themeStatus, setThemeStatus] = useState(themeType);
   useEffect(() => {
     setThemeStatus(!themeStatus);
-  }, [themeType]);
+  }, [themeType, setThemeStatus]);
 
   return (
     <ThemeProvider theme={themeStatus ? lightTheme : darkTheme}>
@@ -25,7 +25,7 @@ const AppContainer = ({ children }) => {
   );
 };
 
-export default function App({ Component, ...rest }: MyAppProps) {
+export default function App({ Component, ...rest }: AppProps) {
   const { store, props } = wrapper.useWrappedStore(rest);
   // const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   const { pageProps } = props;

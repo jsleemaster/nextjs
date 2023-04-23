@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, ChangeEvent } from "react";
 import { useAppDispatch } from "hooks/reduxHooks";
 import { toggleTheme } from "store/actions/theme";
 import { searchPortFolio } from "@/store/actions/portfoilo";
@@ -24,7 +24,7 @@ const Header = () => {
   const [searchText, setSearchText] = useState("");
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const handleText = useCallback(
-    (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+    (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
       setSearchText(e.target.value);
     },
     []
@@ -36,7 +36,7 @@ const Header = () => {
     timerRef.current = setTimeout(() => {
       dispatch(searchPortFolio(searchText));
     }, 100);
-  }, [searchText, timerRef.current]);
+  }, [searchText, dispatch]);
   return (
     <AppBar position="static">
       <Toolbar>

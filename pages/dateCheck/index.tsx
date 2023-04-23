@@ -23,7 +23,7 @@ export default function DateCheck() {
   useEffect(() => {
     setDiffDate(dayjs(date).diff(nextYear));
     setnextYearTime(dayjs(nextYear).subtract(diffDate).format("HH:mm:ss.SSS"));
-  }, [date]);
+  }, [date, diffDate, nextYear]);
 
   return (
     <Container>
