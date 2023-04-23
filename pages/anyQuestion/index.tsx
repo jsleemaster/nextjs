@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { useState, FormEvent, Suspense, useEffect, useCallback } from "react";
 import { useAiFetch } from "hooks/anyQuestion/useFetch";
-import Loading from "components/loading";
 
 export default function AnyQuestion() {
   const [question, setQuestion] = useState<string>("");
@@ -32,7 +31,7 @@ export default function AnyQuestion() {
       <Head>
         <title>무엇이든 물어보세요!</title>
       </Head>
-      <Suspense fallback={<Loading />}>
+      <Suspense fallback={<div>loading</div>}>
         <div>
           <form onSubmit={GetAnswer}>
             <input
