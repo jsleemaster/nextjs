@@ -37,6 +37,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@reduxjs/toolkit", "virtual:a0a1d86d37dad16ec9b6fa6783a3cfd93c087281e3d3f821332e71dfddaacca42fbc7ee14e4585a8c55e64cf5781a6c0a03b4d75a28b7eb7598942a159bb1c6c#npm:1.9.5"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/react", "npm:18.2.0"],\
+            ["@types/react-dom", "npm:18.2.1"],\
             ["@types/redux-logger", "npm:3.0.9"],\
             ["@typescript-eslint/eslint-plugin", "virtual:a0a1d86d37dad16ec9b6fa6783a3cfd93c087281e3d3f821332e71dfddaacca42fbc7ee14e4585a8c55e64cf5781a6c0a03b4d75a28b7eb7598942a159bb1c6c#npm:5.59.1"],\
             ["@typescript-eslint/parser", "virtual:a0a1d86d37dad16ec9b6fa6783a3cfd93c087281e3d3f821332e71dfddaacca42fbc7ee14e4585a8c55e64cf5781a6c0a03b4d75a28b7eb7598942a159bb1c6c#npm:5.59.1"],\
@@ -444,7 +445,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@mui/utils", "virtual:50ec9a97cb8a0846d4e9028f4da25e94f59bda5411c87ed1b21095aea759236003a1111abe8c93a5f7ff07b7c57775a8dd686fa86cced71f200ef54f63868a3f#npm:5.12.0"],\
             ["@popperjs/core", "npm:2.11.7"],\
             ["@types/react", "npm:18.2.0"],\
-            ["@types/react-dom", null],\
+            ["@types/react-dom", "npm:18.2.1"],\
             ["clsx", "npm:1.2.1"],\
             ["prop-types", "npm:15.8.1"],\
             ["react", "npm:18.2.0"],\
@@ -519,7 +520,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/emotion__react", null],\
             ["@types/emotion__styled", null],\
             ["@types/react", "npm:18.2.0"],\
-            ["@types/react-dom", null],\
+            ["@types/react-dom", "npm:18.2.1"],\
             ["@types/react-transition-group", "npm:4.4.5"],\
             ["clsx", "npm:1.2.1"],\
             ["csstype", "npm:3.1.2"],\
@@ -988,6 +989,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/prop-types", "npm:15.7.5"],\
             ["@types/scheduler", "npm:0.16.3"],\
             ["csstype", "npm:3.1.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/react-dom", [\
+        ["npm:18.2.1", {\
+          "packageLocation": "./.yarn/cache/@types-react-dom-npm-18.2.1-4d56bce9b4-4e607a9d08.zip/node_modules/@types/react-dom/",\
+          "packageDependencies": [\
+            ["@types/react-dom", "npm:18.2.1"],\
+            ["@types/react", "npm:18.2.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -3586,7 +3597,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node-sass", null],\
             ["@types/opentelemetry__api", null],\
             ["@types/react", "npm:18.2.0"],\
-            ["@types/react-dom", null],\
+            ["@types/react-dom", "npm:18.2.1"],\
             ["@types/sass", null],\
             ["busboy", "npm:1.6.0"],\
             ["caniuse-lite", "npm:1.0.30001481"],\
@@ -3659,6 +3670,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@reduxjs/toolkit", "virtual:a0a1d86d37dad16ec9b6fa6783a3cfd93c087281e3d3f821332e71dfddaacca42fbc7ee14e4585a8c55e64cf5781a6c0a03b4d75a28b7eb7598942a159bb1c6c#npm:1.9.5"],\
             ["@types/node", "npm:18.11.18"],\
             ["@types/react", "npm:18.2.0"],\
+            ["@types/react-dom", "npm:18.2.1"],\
             ["@types/redux-logger", "npm:3.0.9"],\
             ["@typescript-eslint/eslint-plugin", "virtual:a0a1d86d37dad16ec9b6fa6783a3cfd93c087281e3d3f821332e71dfddaacca42fbc7ee14e4585a8c55e64cf5781a6c0a03b4d75a28b7eb7598942a159bb1c6c#npm:5.59.1"],\
             ["@typescript-eslint/parser", "virtual:a0a1d86d37dad16ec9b6fa6783a3cfd93c087281e3d3f821332e71dfddaacca42fbc7ee14e4585a8c55e64cf5781a6c0a03b4d75a28b7eb7598942a159bb1c6c#npm:5.59.1"],\
@@ -4069,7 +4081,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/runtime", "npm:7.21.5"],\
             ["@types/hoist-non-react-statics", "npm:3.3.1"],\
             ["@types/react", "npm:18.2.0"],\
-            ["@types/react-dom", null],\
+            ["@types/react-dom", "npm:18.2.1"],\
             ["@types/react-native", null],\
             ["@types/redux", null],\
             ["@types/use-sync-external-store", "npm:0.0.3"],\
@@ -4108,7 +4120,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-transition-group", "virtual:50ec9a97cb8a0846d4e9028f4da25e94f59bda5411c87ed1b21095aea759236003a1111abe8c93a5f7ff07b7c57775a8dd686fa86cced71f200ef54f63868a3f#npm:4.4.5"],\
             ["@babel/runtime", "npm:7.21.5"],\
             ["@types/react", "npm:18.2.0"],\
-            ["@types/react-dom", null],\
+            ["@types/react-dom", "npm:18.2.1"],\
             ["dom-helpers", "npm:5.2.1"],\
             ["loose-envify", "npm:1.4.0"],\
             ["prop-types", "npm:15.8.1"],\
