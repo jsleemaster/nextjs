@@ -1,13 +1,16 @@
 {
   "root": false,
+  "settings": {
+    "import/resolver": {
+      "typescript": true
+    }
+  },
   "extends": [
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
     "plugin:react/recommended",
     "eslint:recommended",
-    "plugin:import/errors",
-    "plugin:import/warns",
     "next"
   ],
   "plugins": ["@typescript-eslint/eslint-plugin"],
@@ -98,6 +101,24 @@
        O : function foo() { return true; }
        X : function foo() {return true;}
     */
-    "block-spacing": ["error", "always"]
+    "block-spacing": ["error", "always"],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "sibling",
+          "type",
+          "index"
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "newlines-between": "always"
+      }
+    ]
   }
 }

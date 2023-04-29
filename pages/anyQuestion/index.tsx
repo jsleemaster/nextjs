@@ -1,6 +1,6 @@
+import { useAiFetch } from "hooks/anyQuestion/useFetch";
 import Head from "next/head";
 import { useState, FormEvent, Suspense, useEffect, useCallback } from "react";
-import { useAiFetch } from "hooks/anyQuestion/useFetch";
 
 export default function AnyQuestion() {
   const [question, setQuestion] = useState<string>("");
