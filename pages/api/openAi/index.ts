@@ -1,5 +1,5 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import { openai } from "config";
+import { NextApiRequest, NextApiResponse } from "next";
 interface Prompt {
   model: string;
   temperature: number;
@@ -8,7 +8,7 @@ interface Prompt {
   frequency_penalty: number;
   presence_penalty: number;
   prompt: string;
-  stop: Array<string>;
+  stop: string[];
 }
 
 const generatePrompt = async (prompt: Prompt) => {

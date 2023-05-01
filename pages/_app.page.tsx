@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
-import { AppProps } from "next/app";
-import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import { darkTheme, lightTheme } from "./theme";
-import Head from "next/head.js";
-import { wrapper } from "store/configStore";
-import { Provider } from "react-redux";
+import { ThemeProvider } from "@mui/material/styles";
 import { useAppSelector } from "hooks/reduxHooks";
+import { AppProps } from "next/app";
+import Head from "next/head.js";
+import { useEffect, useState } from "react";
+import { Provider } from "react-redux";
+import { wrapper } from "store/configStore";
+
+import { darkTheme, lightTheme } from "./theme";
+
 // export interface MyAppProps extends AppProps {
 //   // emotionCache?: EmotionCache;
 // }

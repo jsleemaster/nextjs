@@ -1,7 +1,7 @@
 import Grid from "@mui/material/Grid";
 
-import SideBar from "./Sidebar";
 import Header from "./Header";
+import SideBar from "./Sidebar";
 
 const MainLayout = () => {
   return (
