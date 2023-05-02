@@ -1,8 +1,22 @@
 import { red, blue } from "@mui/material/colors";
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
+const globalCss = `
+  body {
+    height: 100vh;
+  }
+  main {
+    height: 100%;
+  }
+`;
+
 const lightCustom = responsiveFontSizes(
   createTheme({
+    components: {
+      MuiCssBaseline: {
+        styleOverrides: globalCss,
+      },
+    },
     palette: {
       custom: {
         light: blue[50],
@@ -21,6 +35,11 @@ const lightCustom = responsiveFontSizes(
 
 const darkCustom = responsiveFontSizes(
   createTheme({
+    components: {
+      MuiCssBaseline: {
+        styleOverrides: globalCss,
+      },
+    },
     palette: {
       mode: "dark",
       background: {

@@ -17,7 +17,7 @@ const AppContainer = ({ children }) => {
   const [themeStatus, setThemeStatus] = useState(themeType);
   useEffect(() => {
     setThemeStatus(!themeStatus);
-  }, [themeType, setThemeStatus]);
+  }, [themeType]);
 
   return (
     <ThemeProvider theme={themeStatus ? lightTheme : darkTheme}>
