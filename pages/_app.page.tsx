@@ -3,7 +3,6 @@ import { ThemeProvider } from "@mui/material/styles";
 import { useAppSelector } from "hooks/reduxHooks";
 import { AppProps } from "next/app";
 import Head from "next/head.js";
-import { useEffect, useState } from "react";
 import { Provider } from "react-redux";
 import { wrapper } from "store/configStore";
 
@@ -14,13 +13,9 @@ import { darkTheme, lightTheme } from "./theme";
 // }
 const AppContainer = ({ children }) => {
   const themeType = useAppSelector((state) => state.theme.darkTheme);
-  const [themeStatus, setThemeStatus] = useState(themeType);
-  useEffect(() => {
-    setThemeStatus(!themeStatus);
-  }, [themeType]);
 
   return (
-    <ThemeProvider theme={themeStatus ? lightTheme : darkTheme}>
+    <ThemeProvider theme={themeType ? lightTheme : darkTheme}>
       <CssBaseline />
       {children}
     </ThemeProvider>
