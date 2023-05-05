@@ -14,20 +14,18 @@ export default function AnyQuestion() {
   const [QnaList, setQnaList] = useState<string[]>([]);
 
   useEffect(() => {
-    async function FetchData() {
+    const FetchData = async () => {
       const { data } = await useAiFetch("openAi", promt);
-
       setQuestion("");
-      setPromt(promt + `${data?.text}`);
-      setQnaList([...QnaList, data?.text]);
-    }
-    if (question) {
+      setQnaList((prevQnaList) => [...prevQnaList, data?.text]);
+    };
+    if (promt) {
       FetchData();
     }
   }, [promt]);
 
   const GetAnswer = useCallback(
-    async (e: FormEvent<HTMLFormElement>) => {
+    (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       setPromt(promt + ` Human: ${question}`);
     },
