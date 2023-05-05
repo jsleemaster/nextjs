@@ -1,8 +1,9 @@
-import { useRouter } from "next/router";
 import { useAppSelector } from "@/hooks/reduxHooks";
-import { SideUl, Sideli } from "./Sidebar.style";
 import Skeleton from "@mui/material/Skeleton";
 import Typography from "@mui/material/Typography";
+import { useRouter } from "next/router";
+
+import { SideUl, Sideli } from "./Sidebar.style";
 
 const SideBar = () => {
   const Items = useAppSelector((state) => state.portFolio.filterItems);
