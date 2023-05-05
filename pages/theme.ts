@@ -18,6 +18,9 @@ const lightCustom = responsiveFontSizes(
       },
     },
     palette: {
+      background: {
+        paper: "#000",
+      },
       custom: {
         light: blue[50],
         main: "#f57c00",

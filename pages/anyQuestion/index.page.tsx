@@ -1,6 +1,7 @@
 import { useAiFetch } from "@/hooks/anyQuestion/useAiFetch";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Head from "next/head";
@@ -37,32 +38,62 @@ export default function AnyQuestion() {
       <Head>
         <title>무엇이든 물어보세요!</title>
       </Head>
-      <Box component="main">
-        <Box
+      <Box
+        component="main"
+        sx={{
+          overflow: "hidden",
+        }}
+      >
+        <Grid
           component="form"
+          container
           onSubmit={GetAnswer}
           sx={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
           }}
+          spacing={2}
         >
-          <TextField
-            type="text"
-            helperText="질문을 입력해주세요."
-            value={question}
-            margin="dense"
-            onChange={(e) => setQuestion(e.target.value)}
-          />
-          <Button type="submit" variant="contained">
-            확인
-          </Button>
-        </Box>
-        <Stack spacing={2}>
-          {QnaList.map((v, i) => {
-            return <Item key={i}>{v}</Item>;
+          <Grid item>
+            <TextField
+              type="text"
+              value={question}
+              margin="dense"
+              onChange={(e) => setQuestion(e.target.value)}
+            />
+          </Grid>
+          <Grid item>
+            <Button type="submit" variant="contained">
+              확인
+            </Button>
+          </Grid>
+        </Grid>
+        <Box
+          sx={(theme) => ({
+            padding: 2,
+            height: 500,
+            overflowY: "scroll",
+            "&::-webkit-scrollbar": { height: 10, WebkitAppearance: "none" },
+            "&::-webkit-scrollbar-thumb": {
+              backgroundColor: theme.palette.background.paper,
+              borderRadius: 8,
+              border: "2px solid",
+            },
           })}
-        </Stack>
+        >
+          <Stack
+            spacing={2}
+            sx={{
+              width: "100%",
+              overflowY: "scroll",
+            }}
+          >
+            {QnaList.map((v, i) => {
+              return <Item key={i}>{v}</Item>;
+            })}
+          </Stack>
+        </Box>
       </Box>
     </>
   );
