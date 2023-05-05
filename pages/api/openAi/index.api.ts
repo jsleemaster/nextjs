@@ -30,7 +30,6 @@ export default async function handler(
 ) {
   const requestMethod = req.method;
   const body = JSON.parse(req?.body);
-
   switch (requestMethod) {
     case "POST":
       return res.status(200).json({

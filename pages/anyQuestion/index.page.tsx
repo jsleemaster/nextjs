@@ -1,17 +1,30 @@
+import { useAiFetch } from "@/hooks/anyQuestion/useAiFetch";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
-import { useAiFetch } from "hooks/anyQuestion/useFetch";
 import Head from "next/head";
-import { useState, FormEvent, Suspense, useEffect, useCallback } from "react";
+import { useState, FormEvent, useCallback, useEffect } from "react";
 
 import { Item } from "./style";
 
 export default function AnyQuestion() {
   const [question, setQuestion] = useState("");
   const [promt, setPromt] = useState("");
-  const [QnaList, setQnaListList] = useState([]);
+  const [QnaList, setQnaList] = useState<string[]>([]);
+
+  useEffect(() => {
+    async function FetchData() {
+      const { data } = await useAiFetch("openAi", promt);
+
+      setQuestion("");
+      setPromt(promt + `${data?.text}`);
+      setQnaList([...QnaList, data?.text]);
+    }
+    if (question) {
+      FetchData();
+    }
+  }, [promt]);
 
   const GetAnswer = useCallback(
     async (e: FormEvent<HTMLFormElement>) => {
@@ -21,27 +34,12 @@ export default function AnyQuestion() {
     [promt, question]
   );
 
-  useEffect(() => {
-    async function fetchData() {
-      if (question) {
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        const res = await useAiFetch("openAi", promt);
-        setQuestion("");
-        const { data } = await res.json();
-        setPromt(promt + `${data.text}`);
-        setQnaListList([...QnaList, data.text]);
-      }
-    }
-    fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [promt]);
-
   return (
     <>
       <Head>
         <title>무엇이든 물어보세요!</title>
       </Head>
-      <Suspense fallback={<div>loading</div>}>
+      <Box component="main">
         <Box
           component="form"
           onSubmit={GetAnswer}
@@ -67,7 +65,7 @@ export default function AnyQuestion() {
             return <Item key={i}>{v}</Item>;
           })}
         </Stack>
-      </Suspense>
+      </Box>
     </>
   );
 }

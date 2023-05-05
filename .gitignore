@@ -13,7 +13,6 @@
 
 # dependencies
 /node_modules
-env.ts
 
 # testing
 /coverage
