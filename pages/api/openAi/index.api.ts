@@ -12,15 +12,28 @@ interface Prompt {
 }
 
 const generatePrompt = async (prompt: Prompt) => {
-  const reuslt: { status: boolean; text: string | undefined } = {
-    status: false,
+  const result: {
+    ok: boolean;
+    text: string | undefined;
+    status: number;
+  } = {
+    ok: false,
     text: "",
+    status: 404,
   };
-  const AiResponse = await openai.createCompletion(prompt);
-  if (AiResponse.data.choices[0]) {
-    reuslt.status = true;
-    reuslt.text = AiResponse.data.choices[0]?.text;
-    return reuslt;
+
+  try {
+    const AiResponse = await openai.createCompletion(prompt);
+
+    if (AiResponse.data.choices[0]) {
+      result.ok = true;
+      result.text = AiResponse.data.choices[0]?.text;
+      result.status = 200;
+      return result;
+    }
+  } catch (error) {
+    result.status = error.response.status;
+    return result;
   }
 };
 
@@ -30,11 +43,14 @@ export default async function handler(
 ) {
   const requestMethod = req.method;
   const body = JSON.parse(req?.body);
+
   switch (requestMethod) {
-    case "POST":
-      return res.status(200).json({
-        data: await generatePrompt(body),
-      });
+    case "POST": {
+      const data = await generatePrompt(body);
+      if (data) {
+        return res.status(data.status).json({ data });
+      }
+    }
   }
   return res.status(404).json({ message: "Not Found" });
 }

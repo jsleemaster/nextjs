@@ -1,3 +1,4 @@
+import { ErrorDialog } from "@/components/ErrorDialog";
 import { useAiFetch } from "@/hooks/anyQuestion/useAiFetch";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -13,12 +14,15 @@ export default function AnyQuestion() {
   const [question, setQuestion] = useState("");
   const [promt, setPromt] = useState("");
   const [QnaList, setQnaList] = useState<string[]>([]);
-
+  const [error, setError] = useState(false);
   useEffect(() => {
     const FetchData = async () => {
-      const { data } = await useAiFetch("openAi", promt);
+      const { text, ok } = await useAiFetch("openAi", promt);
+      if (!ok) {
+        setError(true);
+      }
       setQuestion("");
-      setQnaList((prevQnaList) => [...prevQnaList, data?.text]);
+      setQnaList((prevQnaList) => [...prevQnaList, text]);
     };
     if (promt) {
       FetchData();
@@ -32,6 +36,10 @@ export default function AnyQuestion() {
     },
     [promt, question]
   );
+
+  if (error) {
+    return <ErrorDialog title={`데이터 요청실패`} />;
+  }
 
   return (
     <>

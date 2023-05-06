@@ -13,10 +13,9 @@ const DEFAULT_PARAMS = {
 type UseAiFetchResult = {
   loading: boolean;
   error: string;
-  data: {
-    text: string;
-    status: boolean;
-  };
+  ok: boolean;
+  text: string;
+  status: number;
 };
 
 export const useAiFetch = async (
@@ -36,9 +35,9 @@ export const useAiFetch = async (
       body: JSON.stringify(params),
     });
 
-    const { data, error, ok } = await res.json();
+    const { status, error, ok } = await res.json();
     const loading = !ok;
-    return { loading, error, data } as UseAiFetchResult;
+    return { loading, error, status } as UseAiFetchResult;
   } catch (error) {
     console.log(error);
     return { error } as UseAiFetchResult;
