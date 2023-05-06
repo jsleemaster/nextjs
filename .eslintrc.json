@@ -11,7 +11,8 @@
     "plugin:prettier/recommended",
     "plugin:react/recommended",
     "eslint:recommended",
-    "next"
+    "next",
+    "prettier"
   ],
   "plugins": ["@typescript-eslint/eslint-plugin"],
   "parserOptions": {
@@ -103,7 +104,7 @@
     */
     "block-spacing": ["error", "always"],
     "import/order": [
-      "error",
+      "warn",
       {
         "groups": [
           "builtin",
