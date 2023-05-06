@@ -1,6 +1,3 @@
-import theme from "./actions/theme";
-import portFolio from "./actions/portfoilo";
-
 import {
   combineReducers,
   configureStore,
@@ -10,6 +7,9 @@ import {
 } from "@reduxjs/toolkit";
 import { createWrapper } from "next-redux-wrapper";
 import logger from "redux-logger";
+
+import portFolio from "./actions/portfoilo";
+import theme from "./actions/theme";
 
 export type AppStore = ReturnType<typeof makeStore>;
 export type RootState = ReturnType<typeof store.getState>;

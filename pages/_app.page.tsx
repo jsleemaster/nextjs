@@ -12,10 +12,10 @@ import { darkTheme, lightTheme } from "./theme";
 //   // emotionCache?: EmotionCache;
 // }
 const AppContainer = ({ children }) => {
-  const themeType = useAppSelector((state) => state.theme.darkTheme);
+  const darkStatus = useAppSelector((state) => state.theme.darkTheme);
 
   return (
-    <ThemeProvider theme={themeType ? lightTheme : darkTheme}>
+    <ThemeProvider theme={darkStatus ? darkTheme : lightTheme}>
       <CssBaseline />
       {children}
     </ThemeProvider>
