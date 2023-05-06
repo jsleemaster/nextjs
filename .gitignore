@@ -1,7 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 # used Zero-Install
 .yarn/*
-.yarn/cache 
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
@@ -10,7 +9,9 @@
 
 # Swap the comments on the following lines if you don't wish to use zero-installs
 # Documentation here: <https://yarnpkg.com/features/zero-installs>
-!/.yarn/cache 
+# vercel에서 cache를 읽지 못하는 문제 때문에 ignore처리
+.yarn/cache
+# !/.yarn/cache 
 #/.pnp
 #.pnp.js
 
