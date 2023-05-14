@@ -3,9 +3,9 @@ import Skeleton from "@mui/material/Skeleton";
 import Typography from "@mui/material/Typography";
 import { useRouter } from "next/router";
 
-import { SideUl, Sideli } from "./Sidebar.style";
+import { PortFolioBox, PortFolioContent } from "./PortFolio.style";
 
-const SideBar = () => {
+const PortFolio = () => {
   const Items = useAppSelector((state) => state.portFolio.filterItems);
   const router = useRouter();
 
@@ -26,28 +26,28 @@ const SideBar = () => {
   }
   if (Items.length === 0) {
     return (
-      <SideUl>
-        <Sideli>
+      <PortFolioBox>
+        <PortFolioContent>
           <Typography> 데이터가 없습니다.</Typography>
-        </Sideli>
-      </SideUl>
+        </PortFolioContent>
+      </PortFolioBox>
     );
   }
 
   return (
-    <SideUl>
+    <PortFolioBox>
       {Items.map((portFolio) => {
         return (
-          <Sideli
+          <PortFolioContent
             key={portFolio.id}
             onClick={() => router.push(`/${portFolio.href}`)}
           >
             <Typography>{portFolio.name}</Typography>
-          </Sideli>
+          </PortFolioContent>
         );
       })}
-    </SideUl>
+    </PortFolioBox>
   );
 };
 
-export default SideBar;
+export default PortFolio;

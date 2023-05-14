@@ -1,14 +1,12 @@
 import Grid from "@mui/material/Grid";
 
 import Header from "./Header";
-import SideBar from "./Sidebar";
 
-const MainLayout = () => {
+const MainLayout = ({ children }) => {
   return (
     <Grid sx={{ width: "100%", height: "100vh" }}>
       <Header />
-      <SideBar />
-      <main className="main"></main>
+      <main style={{ padding: "1.6rem" }}>{children}</main>
     </Grid>
   );
 };

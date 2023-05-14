@@ -2,12 +2,12 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
 
-export const SideUl = styled(Box)(() => ({
+export const PortFolioBox = styled(Box)(() => ({
   display: "flex",
   flexWrap: "wrap",
 }));
 
-export const Sideli = styled(Paper)(({ theme }) => ({
+export const PortFolioContent = styled(Paper)(({ theme }) => ({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
