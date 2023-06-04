@@ -13,17 +13,19 @@ const PortFolio = () => {
 
   if (!Items) {
     return (
-      <>
-        {[1, 2, 3].map((index) => (
-          <Skeleton
-            key={index}
-            variant="rounded"
-            width={"100%"}
-            height={"100%"}
-            animation="wave"
-          />
-        ))}
-      </>
+      <PortFolioBox>
+        <PortFolioContent>
+          {[1, 2, 3, 4, 5].map((index) => (
+            <Skeleton
+              key={index}
+              variant="rounded"
+              width={"100%"}
+              height={"100%"}
+              animation="wave"
+            />
+          ))}
+        </PortFolioContent>
+      </PortFolioBox>
     );
   }
   if (Items.length === 0) {
