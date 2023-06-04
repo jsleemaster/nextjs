@@ -1,7 +1,9 @@
+"use client";
+
 import { useAppSelector } from "@/hooks/reduxHooks";
 import Skeleton from "@mui/material/Skeleton";
 import Typography from "@mui/material/Typography";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 import { PortFolioBox, PortFolioContent } from "./PortFolio.style";
 

@@ -1,3 +1,5 @@
+"use client";
+
 import Grid from "@mui/material/Grid";
 
 import Header from "./Header";
