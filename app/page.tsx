@@ -1,13 +1,10 @@
 import MainLayout from "@/components/layouts/Layout";
-
-import PortFolio from "./PortFolio";
+import PortFolio from "@/components/PortFolio";
 
 export default function Index() {
   return (
-    <>
-      <MainLayout>
-        <PortFolio />
-      </MainLayout>
-    </>
+    <MainLayout>
+      <PortFolio />
+    </MainLayout>
   );
 }
