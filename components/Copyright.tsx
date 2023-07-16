@@ -1,14 +1,15 @@
 import MuiLink from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
+import dayjs from "dayjs";
 
-export default function Copyright() {
+export const CopyRight = () => {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
       {"Copyright © "}
       <MuiLink color="inherit" href="/">
         Jsleemaster
       </MuiLink>{" "}
-      {new Date().getFullYear()}.
+      {dayjs().year()}.
     </Typography>
   );
-}
+};

@@ -9,6 +9,13 @@ const globalCss = `
     height: 100%;
   }
 `;
+import { h3, h6, subtitle2 } from "./font";
+
+const typography = {
+  h3: { ...h3 },
+  h6: { ...h6 },
+  subtitle2: { ...subtitle2 },
+};
 
 const lightCustom = responsiveFontSizes(
   createTheme({
@@ -17,6 +24,7 @@ const lightCustom = responsiveFontSizes(
         styleOverrides: globalCss,
       },
     },
+    typography,
     palette: {
       background: {
         paper: "#fff",
@@ -43,6 +51,7 @@ const darkCustom = responsiveFontSizes(
         styleOverrides: globalCss,
       },
     },
+    typography,
     palette: {
       mode: "dark",
       background: {

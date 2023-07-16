@@ -2,20 +2,24 @@
 import ModeNightIcon from "@mui/icons-material/ModeNight";
 import SearchIcon from "@mui/icons-material/Search";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
+import { Avatar, Stack } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import IconButton from "@mui/material/IconButton";
 import { useTheme } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { useAppDispatch } from "hooks/reduxHooks";
+import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState, ChangeEvent } from "react";
 import { searchPortFolio } from "store/actions/portfoilo";
 import { toggleTheme } from "store/actions/theme";
 
 /* style */
-import { Search, StyledInputBase, SearchIconWrapper } from "./Header.style";
+import { Search, StyledInputBase, SearchIconWrapper } from "./HeaderStyle";
+
 const Header = () => {
   const dispatch = useAppDispatch();
+  const router = useRouter();
   const onToggleTheme = useCallback(() => {
     return dispatch(toggleTheme());
   }, [dispatch]);
@@ -36,21 +40,31 @@ const Header = () => {
       dispatch(searchPortFolio(searchText));
     }, 100);
   }, [searchText, dispatch]);
+
   return (
     <AppBar position="static">
       <Toolbar>
-        <IconButton onClick={onToggleTheme}>
-          {palette.mode === "dark" ? <ModeNightIcon /> : <WbSunnyIcon />}
-        </IconButton>
+        <Stack direction="row" spacing={2}>
+          <IconButton onClick={onToggleTheme}>
+            {palette.mode === "dark" ? <ModeNightIcon /> : <WbSunnyIcon />}
+          </IconButton>
+          <Avatar
+            alt="profile"
+            src="/images/jslee.jpg"
+            sx={{ cursor: "pointer" }}
+            onClick={() => router.push("/jslee")}
+          ></Avatar>
+        </Stack>
+
         <Typography
           variant="h6"
           noWrap
           component="div"
-          sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+          sx={{ flexGrow: 1, display: { xs: "none", sm: "block" }, margin: 1 }}
         >
           PortFolio
         </Typography>
-        <Search>
+        <Search sx={{ margin: 1 }}>
           <SearchIconWrapper>
             <SearchIcon />
           </SearchIconWrapper>

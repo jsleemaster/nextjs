@@ -12,7 +12,7 @@ import { useState, FormEvent, useCallback, useEffect } from "react";
 
 import { Item } from "./style";
 
-export default function AnyQuestion() {
+const AnyQuestion = () => {
   const [question, setQuestion] = useState("");
   const [promt, setPromt] = useState("");
   const [QnaList, setQnaList] = useState<string[]>([]);
@@ -107,4 +107,5 @@ export default function AnyQuestion() {
       </Box>
     </>
   );
-}
+};
+export default AnyQuestion;
