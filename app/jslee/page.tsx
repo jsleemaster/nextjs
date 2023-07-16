@@ -4,7 +4,6 @@ import GridBox from "@/components/jslee/GridBox";
 import useInit from "@/hooks/useInit";
 import { Grid, Typography, Card } from "@mui/material";
 import Image from "next/image";
-import profile from "public/images/jslee.jpg";
 
 import { Container, ProfileBox } from "./style";
 
@@ -147,12 +146,12 @@ const Jslee = () => {
               }}
             >
               <Image
-                src={profile}
+                src={"/images/jslee.jpg"}
                 alt="profile"
+                fill={true}
                 style={{
                   objectFit: "cover",
                   width: "100%",
-                  height: "auto",
                 }}
               />
             </Grid>
