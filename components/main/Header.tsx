@@ -11,7 +11,6 @@ import Typography from "@mui/material/Typography";
 import { useAppDispatch } from "hooks/reduxHooks";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import profileImg from "public/images/jslee.jpg";
 import { useCallback, useEffect, useRef, useState, ChangeEvent } from "react";
 import { searchPortFolio } from "store/actions/portfoilo";
 import { toggleTheme } from "store/actions/theme";
@@ -54,7 +53,7 @@ const Header = () => {
             sx={{ cursor: "pointer" }}
             onClick={() => router.push("/jslee")}
           >
-            <Image src={profileImg} alt="프로필" fill={true} />
+            <Image src={"/images/jslee.jpg"} alt="프로필" fill={true} />
           </Avatar>
         </Stack>
 
