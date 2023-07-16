@@ -3,8 +3,16 @@
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import { useAppSelector } from "hooks/reduxHooks";
+import { Roboto } from "next/font/google";
 import { ReactNode } from "react";
 import { Provider } from "react-redux";
+
+const roboto = Roboto({
+  weight: ["300", "400", "700"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  display: "swap",
+});
 
 // import { wrapper } from "store/configStore";
 import { store } from "./configStore";
@@ -23,9 +31,13 @@ const AppContainer = ({ children }: { children: ReactNode }) => {
 
 export default function Providers({ children }: { children: ReactNode }) {
   return (
-    <Provider store={store}>
-      {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-      <AppContainer>{children}</AppContainer>
-    </Provider>
+    <html lang="ko" className={roboto.className}>
+      <link rel="icon" href="/favicon.ico" />
+      <body>
+        <Provider store={store}>
+          <AppContainer>{children}</AppContainer>
+        </Provider>
+      </body>
+    </html>
   );
 }
