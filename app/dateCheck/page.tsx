@@ -1,45 +1,49 @@
 "use client";
 
+import { diffDay, nowDateTime, year } from "@/hooks/useDayjs";
+import useInit from "@/hooks/useInit";
 import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 
 import { Container, Main, DateSpan, NextDateSpan } from "./style";
 
 export default function DateCheck() {
+  const mounted = useInit();
   const nextYear = dayjs()
     .add(1, "year")
     .startOf("year")
-    .format("YYYY-MM-DD HH:mm:ss.SSS");
-
-  const [date, setDate] = useState(dayjs().format("YYYY-MM-DD HH:mm:ss.SSS"));
-  const [nextYearTime, setnextYearTime] = useState(
-    dayjs(nextYear).format("YYYY-MM-DD HH:mm:ss.SSS")
-  );
+    .format("YYYY-MM-DD HH:mm:ss");
+  const [date, setDate] = useState(nowDateTime());
+  const [nextYearTime, setnextYearTime] = useState(nowDateTime());
   const [diffDate, setDiffDate] = useState(0);
 
   useEffect(() => {
-    setInterval(() => {
-      setDate(dayjs().format("YYYY-MM-DD HH:mm:ss.SSS"));
+    const timeInterval = setInterval(() => {
+      setDate(nowDateTime());
     }, 100);
+
+    return () => clearInterval(timeInterval);
   }, []);
 
   useEffect(() => {
     setDiffDate(dayjs(date).diff(nextYear));
-    setnextYearTime(dayjs(nextYear).subtract(diffDate).format("HH:mm:ss.SSS"));
+    setnextYearTime(dayjs(nextYear).subtract(diffDate).format("HH:mm:ss"));
   }, [date, diffDate, nextYear]);
 
   return (
-    <Container>
-      <Main>
-        <DateSpan>{date}</DateSpan>
-        {diffDate < 0 && (
-          <NextDateSpan>
-            {dayjs(nextYear).format("YYYY")}년 까지 남은 시간{" "}
-            <b>D-{dayjs(nextYear).diff(date, "day")}</b>
-            {nextYearTime}
-          </NextDateSpan>
-        )}
-      </Main>
-    </Container>
+    mounted && (
+      <Container>
+        <Main>
+          <DateSpan>{date}</DateSpan>
+          {diffDate < 0 && (
+            <NextDateSpan>
+              {year(nextYear)}년 까지 남은 시간{" "}
+              <b>D-{diffDay(nextYear, diffDate)}</b>
+              {nextYearTime}
+            </NextDateSpan>
+          )}
+        </Main>
+      </Container>
+    )
   );
 }
