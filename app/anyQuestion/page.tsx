@@ -10,7 +10,7 @@ import TextField from "@mui/material/TextField";
 import Head from "next/head";
 import { useState, FormEvent, useCallback, useEffect } from "react";
 
-import { Item } from "../style";
+import { Item } from "./style";
 
 const AnyQuestion = () => {
   const [question, setQuestion] = useState("");
