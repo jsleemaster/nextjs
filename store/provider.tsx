@@ -2,7 +2,7 @@
 
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
-import { useAppSelector } from "hooks/reduxHooks";
+import { useAppSelector } from "app/hooks/reduxHooks";
 import { Roboto } from "next/font/google";
 import { ReactNode } from "react";
 import { Provider } from "react-redux";

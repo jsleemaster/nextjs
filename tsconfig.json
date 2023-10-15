@@ -10,9 +10,9 @@
     "baseUrl": ".",
     "forceConsistentCasingInFileNames": false,
     "paths": {
-      "@/components/*": ["components/*"],
+      "@/components/*": ["app/components/*"],
       "@/store/*": ["store/*"],
-      "@/hooks/*": ["hooks/*"],
+      "@/hooks/*": ["app/hooks/*"],
       "@/types/*": ["types/*"],
       "@/utils/*": ["utils/*"],
       "@/api/*": ["api/*"]

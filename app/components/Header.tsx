@@ -8,7 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import { useTheme } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { useAppDispatch } from "hooks/reduxHooks";
+import { useAppDispatch } from "app/hooks/reduxHooks";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState, ChangeEvent } from "react";

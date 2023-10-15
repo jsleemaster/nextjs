@@ -1,7 +1,7 @@
 "use client";
 
 import { ErrorDialog } from "@/components/ErrorDialog";
-import { useAiFetch } from "@/hooks/anyQuestion/useAiFetch";
+import { useAiFetch } from "app/anyQuestion/hooks/useAiFetch";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
