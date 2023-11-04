@@ -8,18 +8,18 @@ export const PortFolioBox = styled(Box)(() => ({
 }));
 
 export const PortFolioContent = styled(Paper)(({ theme }) => ({
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  fontSize: 18,
-  padding: 5,
-  margin: 10,
-  width: 200,
-  height: 100,
-  cursor: "pointer",
-  whiteSpace: "nowrap",
-  overflow: "hidden",
-  p: {
+  "display": "flex",
+  "justifyContent": "center",
+  "alignItems": "center",
+  "fontSize": 18,
+  "padding": 5,
+  "margin": 10,
+  "width": 200,
+  "height": 100,
+  "cursor": "pointer",
+  "whiteSpace": "nowrap",
+  "overflow": "hidden",
+  "p": {
     textOverflow: "ellipsis",
   },
   ":hover": {
