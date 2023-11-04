@@ -14,8 +14,7 @@
       "@/store/*": ["store/*"],
       "@/hooks/*": ["app/hooks/*"],
       "@/types/*": ["types/*"],
-      "@/utils/*": ["utils/*"],
-      "@/api/*": ["api/*"]
+      "@/api/*": ["app/api/*"]
     },
     "allowJs": true,
     "skipLibCheck": true,
