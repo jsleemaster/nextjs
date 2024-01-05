@@ -5,7 +5,6 @@ import Image from "next/image";
 
 import GridBox from "@/components/GridBox";
 import useInit from "hooks/useInit";
-import JsleeImg from "public/images/jslee.jpg";
 
 import { Container, ProfileBox } from "./style";
 
@@ -148,7 +147,7 @@ const Jslee = () => {
               }}
             >
               <Image
-                src={JsleeImg}
+                src={"/images/jslee.jpg"}
                 alt="profile"
                 fill={true}
                 style={{

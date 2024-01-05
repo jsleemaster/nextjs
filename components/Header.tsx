@@ -13,7 +13,6 @@ import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState, ChangeEvent } from "react";
 
 import { useAppDispatch } from "hooks/reduxHooks";
-import JsleeImg from "public/images/jslee.jpg";
 import { searchPortFolio } from "store/actions/portfoilo";
 import { toggleTheme } from "store/actions/theme";
 
@@ -55,7 +54,7 @@ const Header = () => {
             sx={{ cursor: "pointer" }}
             onClick={() => router.push("/jslee")}
           >
-            <Image src={JsleeImg} alt="프로필" fill={true} />
+            <Image src={"/images/jslee.jpg"} alt="프로필" fill={true} />
           </Avatar>
         </Stack>
 
