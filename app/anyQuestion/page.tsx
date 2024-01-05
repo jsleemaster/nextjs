@@ -8,7 +8,7 @@ import TextField from "@mui/material/TextField";
 import Head from "next/head";
 import { useState, FormEvent, useCallback, useEffect } from "react";
 
-import { ErrorDialog } from "@/components/ErrorDialog";
+import { ErrorDialog } from "components/ErrorDialog";
 import { useAiFetch } from "hooks/useAiFetch";
 
 import { Item } from "./style";

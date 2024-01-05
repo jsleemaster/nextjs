@@ -4,7 +4,7 @@ import Skeleton from "@mui/material/Skeleton";
 import Typography from "@mui/material/Typography";
 import { useRouter } from "next/navigation";
 
-import { useAppSelector } from "app/hooks/reduxHooks";
+import { useAppSelector } from "hooks/reduxHooks";
 
 import { PortFolioBox, PortFolioContent } from "./PortFolio.style";
 

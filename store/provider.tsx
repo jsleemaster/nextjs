@@ -6,7 +6,7 @@ import { Roboto } from "next/font/google";
 import { ReactNode } from "react";
 import { Provider } from "react-redux";
 
-import { useAppSelector } from "app/hooks/reduxHooks";
+import { useAppSelector } from "hooks/reduxHooks";
 
 const roboto = Roboto({
   weight: ["300", "400", "700"],

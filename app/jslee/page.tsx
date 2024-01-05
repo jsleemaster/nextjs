@@ -1,9 +1,10 @@
 "use client";
 
-import GridBox from "app/jslee/components/GridBox";
-import useInit from "app/hooks/useInit";
 import { Grid, Typography, Card } from "@mui/material";
 import Image from "next/image";
+
+import GridBox from "@/components/GridBox";
+import useInit from "hooks/useInit";
 
 import { Container, ProfileBox } from "./style";
 

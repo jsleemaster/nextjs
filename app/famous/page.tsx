@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 
-import useFamous from "./hooks/useFamous";
+import useFamous from "hooks/useFamous";
 
 const Famous = async () => {
   const message = await useFamous();

@@ -19,9 +19,5 @@ export const DateSpan = styled("span")(() => ({
 }));
 
 export const NextDateSpan = styled("span")(() => ({
-  fontSize: "3rem",
   color: "brown",
-  justifyContent: "center",
-  display: "flex",
-  flexDirection: "column",
 }));

@@ -3,17 +3,16 @@
 import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 
-import { diffDay, nowDateTime, year } from "app/hooks/useDayjs";
-import useInit from "app/hooks/useInit";
+import { diffDay, nowDateTime, year } from "hooks/useDayjs";
+import useInit from "hooks/useInit";
 
 import { Container, Main, DateSpan, NextDateSpan } from "./style";
 
 export default function DateCheck() {
   const mounted = useInit();
-  const nextYear = dayjs()
-    .add(1, "year")
-    .startOf("year")
-    .format("YYYY-MM-DD HH:mm:ss");
+  const [nextYear, _] = useState(
+    dayjs().add(1, "year").startOf("years").format("YYYY-MM-DD HH:mm:ss")
+  );
   const [date, setDate] = useState(nowDateTime());
   const [nextYearTime, setnextYearTime] = useState(nowDateTime());
   const [diffDate, setDiffDate] = useState(0);
@@ -28,21 +27,23 @@ export default function DateCheck() {
 
   useEffect(() => {
     setDiffDate(dayjs(date).diff(nextYear));
-    setnextYearTime(dayjs(nextYear).subtract(diffDate).format("HH:mm:ss"));
+    setnextYearTime(dayjs(nextYear).subtract(diffDate).format("HH시mm분ss초"));
   }, [date, diffDate, nextYear]);
 
   return (
     mounted && (
       <Container>
         <Main>
-          <DateSpan>{date}</DateSpan>
-          {diffDate < 0 && (
+          <DateSpan>
+            현재 : {date}
+            <br />
+            {year(nextYear)}년 까지 :
             <NextDateSpan>
-              {year(nextYear)}년 까지 남은 시간{" "}
-              <b>D-{diffDay(nextYear, diffDate)}</b>
+              {" "}
+              <b>{diffDay(nextYear, date)}일 </b>
               {nextYearTime}
             </NextDateSpan>
-          )}
+          </DateSpan>
         </Main>
       </Container>
     )

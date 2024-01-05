@@ -12,7 +12,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState, ChangeEvent } from "react";
 
-import { useAppDispatch } from "app/hooks/reduxHooks";
+import { useAppDispatch } from "hooks/reduxHooks";
 import { searchPortFolio } from "store/actions/portfoilo";
 import { toggleTheme } from "store/actions/theme";
 

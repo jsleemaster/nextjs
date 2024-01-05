@@ -1,5 +1,5 @@
-import MainLayout from "@/components/Layout";
-import PortFolio from "@/components/PortFolio";
+import MainLayout from "components/Layout";
+import PortFolio from "components/PortFolio";
 
 export default function Index() {
   return (
