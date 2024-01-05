@@ -1,4 +1,3 @@
-"use client";
 import useSWR from "swr";
 
 import * as Config from "config";
