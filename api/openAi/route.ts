@@ -1,5 +1,6 @@
-import { openai } from "config";
 import { NextApiRequest, NextApiResponse } from "next";
+
+import { openai } from "config";
 interface Prompt {
   model: string;
   temperature: number;

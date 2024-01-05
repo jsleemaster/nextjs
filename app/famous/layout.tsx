@@ -1,6 +1,7 @@
-import Providers from "store/provider";
 import { Metadata } from "next";
 import { ReactNode } from "react";
+
+import Providers from "store/provider";
 
 export const metadata: Metadata = {
   title: "명언",

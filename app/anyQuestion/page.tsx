@@ -1,7 +1,5 @@
 "use client";
 
-import { ErrorDialog } from "@/components/ErrorDialog";
-import { useAiFetch } from "app/anyQuestion/hooks/useAiFetch";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
@@ -9,6 +7,9 @@ import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Head from "next/head";
 import { useState, FormEvent, useCallback, useEffect } from "react";
+
+import { ErrorDialog } from "@/components/ErrorDialog";
+import { useAiFetch } from "hooks/useAiFetch";
 
 import { Item } from "./style";
 
@@ -81,9 +82,9 @@ const AnyQuestion = () => {
         </Grid>
         <Box
           sx={(theme) => ({
-            padding: 2,
-            height: 500,
-            overflowY: "scroll",
+            "padding": 2,
+            "height": 500,
+            "overflowY": "scroll",
             "&::-webkit-scrollbar": { height: 10, WebkitAppearance: "none" },
             "&::-webkit-scrollbar-thumb": {
               backgroundColor: theme.palette.background.paper,

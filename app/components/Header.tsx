@@ -8,10 +8,11 @@ import IconButton from "@mui/material/IconButton";
 import { useTheme } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { useAppDispatch } from "app/hooks/reduxHooks";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState, ChangeEvent } from "react";
+
+import { useAppDispatch } from "app/hooks/reduxHooks";
 import { searchPortFolio } from "store/actions/portfoilo";
 import { toggleTheme } from "store/actions/theme";
 
