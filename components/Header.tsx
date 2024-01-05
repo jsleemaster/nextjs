@@ -9,6 +9,9 @@ import { useTheme } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
+
+import JsleeImg from "/public/images/jslee.jpg";
+
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState, ChangeEvent } from "react";
 
@@ -54,7 +57,7 @@ const Header = () => {
             sx={{ cursor: "pointer" }}
             onClick={() => router.push("/jslee")}
           >
-            <Image src={"/jslee.jpg"} alt="프로필" fill={true} />
+            <Image src={JsleeImg} alt="프로필" fill={true} />
           </Avatar>
         </Stack>
 

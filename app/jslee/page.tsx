@@ -1,6 +1,9 @@
 "use client";
 
 import { Grid, Typography, Card } from "@mui/material";
+
+import JsleeImg from "/public/images/jslee.jpg";
+
 import Image from "next/image";
 
 import GridBox from "@/components/GridBox";
@@ -147,7 +150,7 @@ const Jslee = () => {
               }}
             >
               <Image
-                src={"/jslee.jpg"}
+                src={JsleeImg}
                 alt="profile"
                 fill={true}
                 style={{
