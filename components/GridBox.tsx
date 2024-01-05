@@ -14,9 +14,12 @@ const GridBox = ({
     <Grid
       sx={{
         ...sx,
-        display: "flex",
-        flexDirection: "column",
-        overflow: "scroll",
+        "display": "flex",
+        "flexDirection": "column",
+        "overflow": "scroll",
+        "&::-webkit-scrollbar": { display: "none" },
+        "&::-webkit-scrollbar-thumb": { display: "none" },
+        "scrollbar-width": "none",
       }}
       component={"article"}
     >
@@ -33,7 +36,25 @@ const GridBox = ({
       >
         {title}
       </Typography>
-      <Grid sx={{ maxHeight: "100%", overflowY: "auto" }}>{children}</Grid>
+      <Grid
+        sx={{
+          "maxHeight": "100%",
+          "overflowY": "overlay",
+          "&::-webkit-scrollbar": {
+            background: "transparent",
+            width: "5px",
+          },
+          "&::-webkit-scrollbar-thumb": {
+            borderRadius: "10px",
+            background: "rgba(0,0,0,0.1)",
+          },
+          "&::-webkit-scrollbar-track": {
+            background: "none",
+          },
+        }}
+      >
+        {children}
+      </Grid>
     </Grid>
   );
 };
