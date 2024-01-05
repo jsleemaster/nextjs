@@ -147,7 +147,7 @@ const Jslee = () => {
               }}
             >
               <Image
-                src={"/images/jslee.jpg"}
+                src={"/jslee.jpg"}
                 alt="profile"
                 fill={true}
                 style={{

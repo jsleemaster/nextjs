@@ -54,7 +54,7 @@ const Header = () => {
             sx={{ cursor: "pointer" }}
             onClick={() => router.push("/jslee")}
           >
-            <Image src={"/images/jslee.jpg"} alt="프로필" fill={true} />
+            <Image src={"/jslee.jpg"} alt="프로필" fill={true} />
           </Avatar>
         </Stack>
 
