@@ -2,7 +2,7 @@ import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { ReactNode, useState } from "react";
 interface ErrorDialogProps {
   children?: ReactNode;

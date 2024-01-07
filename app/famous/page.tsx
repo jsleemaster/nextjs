@@ -1,17 +1,20 @@
 "use client";
 
-import { Suspense } from "react";
+import { useEffect, useState } from "react";
 
-import useFamous from "hooks/useFamous";
+export default function Famous() {
+  const [message, setMesage] = useState();
 
-const Famous = async () => {
-  const message = await useFamous();
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const res = await fetch("/api/famous");
+      } catch (error) {
+        return error;
+      }
+    };
+    getData();
+  }, []);
 
-  return (
-    <Suspense fallback={<>로딩중..</>}>
-      <>{message}</>
-    </Suspense>
-  );
-};
-
-export default Famous;
+  return <>{message}</>;
+}

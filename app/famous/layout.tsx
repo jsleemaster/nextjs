@@ -7,7 +7,6 @@ export const metadata: Metadata = {
   title: "명언",
   description: "Jsleemaster App",
 };
-
 export default function RootLayout({ children }: { children: ReactNode }) {
   return <Providers>{children}</Providers>;
 }

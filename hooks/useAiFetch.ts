@@ -1,4 +1,3 @@
-import * as Config from "config";
 const DEFAULT_PARAMS = {
   model: "text-davinci-003",
   temperature: 0.9,
@@ -25,7 +24,7 @@ export const useAiFetch = async (
   const params = { ...DEFAULT_PARAMS, prompt };
 
   try {
-    const res = await fetch(`${Config.server}/api/${url}`, {
+    const res = await fetch(`/api/${url}`, {
       method: "POST",
       headers: {
         ContentType: "application/json",

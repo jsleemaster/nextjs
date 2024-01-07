@@ -5,8 +5,14 @@ const nextConfig = {
   swcMinify: true,
   output: "standalone",
   poweredByHeader: false,
+  trailingSlash: true,
   images: {
-    domains: ["https://nextjs-lahrlvbi4-jsleemaster.vercel.app"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "https://nextjs-lahrlvbi4-jsleemaster.vercel.app",
+      },
+    ],
   },
 };
 
