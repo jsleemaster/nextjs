@@ -10,11 +10,11 @@
     "baseUrl": ".",
     "forceConsistentCasingInFileNames": false,
     "paths": {
-      "@/components/*": ["components/*"],
-      "@/store/*": ["store/*"],
-      "@/hooks/*": ["hooks/*"],
-      "@/types/*": ["types/*"],
-      "@/api/*": ["app/api/*"]
+      "components/*": ["./src/components/*"],
+      "store/*": ["./src/store/*"],
+      "hooks/*": ["./src/hooks/*"],
+      "types/*": ["./src/types/*"],
+      "app/api/*": ["./src/app/api/*"]
     },
     "allowJs": true,
     "skipLibCheck": true,
@@ -38,11 +38,12 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
     ".next/types/**/*.ts",
     "env.local"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", ".next"]
 }
 
   

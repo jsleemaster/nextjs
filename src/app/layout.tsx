@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { ReactNode } from "react";
 
-import Providers from "store/provider";
+import Providers from "src/store/provider";
 
 import type { Viewport } from "next";
 

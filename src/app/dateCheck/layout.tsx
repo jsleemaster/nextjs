@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { ReactNode } from "react";
 
-import Providers from "@/store/provider";
+import Providers from "src/store/provider";
 
 export const metadata: Metadata = {
   title: "시간",
