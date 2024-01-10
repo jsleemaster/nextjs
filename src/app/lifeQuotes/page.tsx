@@ -1,0 +1,19 @@
+"use client";
+
+import { Suspense } from "react";
+
+import useLifeQuotes from "hooks/lifeQuotes/useLifeQuotes";
+import usePermittion from "hooks/lifeQuotes/usePermittion";
+
+export default function LifeQuotes() {
+  const { notificationErrorMessage, notificationPermission } = usePermittion();
+  const { lifeQuotes, time } = useLifeQuotes();
+
+  return (
+    <Suspense fallback={<>로딩중...</>}>
+      {notificationPermission !== "granted" && <>{notificationErrorMessage}</>}
+      {lifeQuotes?.author}
+      {lifeQuotes?.title}
+    </Suspense>
+  );
+}
