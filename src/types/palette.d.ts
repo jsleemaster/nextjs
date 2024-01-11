@@ -15,4 +15,5 @@ declare module "@mui/material/styles/createPalette" {
   }
 }
 
+// eslint-disable-next-line no-undef
 export default function createPalette(palette: PaletteOptions): Palette;
