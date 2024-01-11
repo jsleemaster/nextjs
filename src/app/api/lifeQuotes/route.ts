@@ -16,12 +16,14 @@ export async function GET() {
   );
   const data = await res.json();
   const quotesData: LifeQuotesType[] = [];
-  data.results.forEach((quotes, idx) => {
-    quotesData.push({
-      author: quotes.properties.태그.select.name,
-      title: quotes.properties.이름.title[0].plain_text,
-      idx,
+  if (data.results && data.results.length > 0) {
+    data.results.forEach((quotes, idx) => {
+      quotesData.push({
+        author: quotes.properties.태그.select.name,
+        title: quotes.properties.이름.title[0].plain_text,
+        idx,
+      });
     });
-  });
+  }
   return Response.json({ data: quotesData, test: data, test2: res });
 }
