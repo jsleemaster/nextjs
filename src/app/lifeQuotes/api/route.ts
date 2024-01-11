@@ -27,6 +27,6 @@ export async function GET() {
     });
     return Response.json({ data: quotesData });
   } catch (err) {
-    return err;
+    return Response.json({ data: "ERROR", status: 404 });
   }
 }
