@@ -38,17 +38,9 @@ const generatePrompt = async (prompt: Prompt) => {
   }
 };
 
-export default async function handler(req: NextApiRequest) {
-  const requestMethod = req.method;
-  const body = JSON.parse(req?.body);
-
-  switch (requestMethod) {
-    case "POST": {
-      const data = await generatePrompt(body);
-      if (data) {
-        return Response.json({ data });
-      }
-    }
+export default async function POST(req: NextApiRequest) {
+  const data = await generatePrompt(req.body);
+  if (data) {
+    return Response.json({ data });
   }
-  return Response.json({ message: "Not Found" });
 }
