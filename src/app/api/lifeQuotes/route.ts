@@ -28,6 +28,6 @@ export async function GET() {
     return Response.json({ data: quotesData });
   } catch (err) {
     errMessage = err;
-    return Response.json({ data: errMessage, status: 404 });
+    return Response.json({ data: { "test": err, "hi": "hi" }, status: 404 });
   }
 }
