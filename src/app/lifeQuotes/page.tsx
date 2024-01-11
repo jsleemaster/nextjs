@@ -12,8 +12,8 @@ export default function LifeQuotes() {
   return (
     <Suspense fallback={<>로딩중...</>}>
       {notificationPermission !== "granted" && <>{notificationErrorMessage}</>}
-      {lifeQuotes?.author}
-      {lifeQuotes?.title}
+      {lifeQuotes && lifeQuotes.author}
+      {lifeQuotes && lifeQuotes.title}
     </Suspense>
   );
 }
