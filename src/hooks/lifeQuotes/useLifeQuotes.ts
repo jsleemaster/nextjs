@@ -23,7 +23,7 @@ export default () => {
   };
   const getData = async () => {
     try {
-      const res = await fetch("/lifeQuotes/api");
+      const res = await fetch("/api/lifeQuotes/");
       const { data } = await res.json();
       getNewMessage(data);
     } catch (error) {
