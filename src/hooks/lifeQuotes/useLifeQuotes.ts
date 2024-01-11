@@ -24,8 +24,8 @@ export default () => {
   const getData = async () => {
     try {
       const res = await fetch("/api/lifeQuotes/");
-      console.log(`res`, res);
       const { data } = await res.json();
+      console.log(`data`, data);
       getNewMessage(data);
     } catch (error) {
       return error;
