@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextApiRequest } from "next";
 
 import { openai } from "config";
 interface Prompt {
@@ -38,10 +38,7 @@ const generatePrompt = async (prompt: Prompt) => {
   }
 };
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async function handler(req: NextApiRequest) {
   const requestMethod = req.method;
   const body = JSON.parse(req?.body);
 
@@ -49,9 +46,9 @@ export default async function handler(
     case "POST": {
       const data = await generatePrompt(body);
       if (data) {
-        return res.status(data.status).json({ data });
+        return Response.json({ data });
       }
     }
   }
-  return res.status(404).json({ message: "Not Found" });
+  return Response.json({ message: "Not Found" });
 }
