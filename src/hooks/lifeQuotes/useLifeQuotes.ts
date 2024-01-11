@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { LifeQuotesType } from "types/lifeQuotes/type";
 
 export default () => {
-  const [time, setTime] = useState(30000);
+  const [time, setTime] = useState(2000);
   const [lifeQuotes, setLifeQuotes] = useState<LifeQuotesType>();
   const setTimeRef = useRef<NodeJS.Timer>();
 
@@ -18,7 +18,7 @@ export default () => {
     setLifeQuotes(lifeQuotesMessage);
     setTimeRef.current = setTimeout(() => {
       getNewMessage(data);
-      // TODO: 알림추가
+      const noti = new Notification("알림", { body: "명언이 왔어요" });
     }, time);
   };
   const getData = async () => {
