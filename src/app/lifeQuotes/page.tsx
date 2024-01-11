@@ -10,10 +10,15 @@ export default function LifeQuotes() {
   const { lifeQuotes, time } = useLifeQuotes();
 
   return (
-    <Suspense fallback={<>로딩중...</>}>
-      {notificationPermission !== "granted" && <>{notificationErrorMessage}</>}
-      {lifeQuotes && lifeQuotes.author}
-      {lifeQuotes && lifeQuotes.title}
-    </Suspense>
+    <>
+      테스트
+      <Suspense fallback={<>로딩중...</>}>
+        {notificationPermission !== "granted" && (
+          <>{notificationErrorMessage}</>
+        )}
+        {lifeQuotes && lifeQuotes.author}
+        {lifeQuotes && lifeQuotes.title}
+      </Suspense>
+    </>
   );
 }
