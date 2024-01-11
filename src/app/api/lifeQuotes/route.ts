@@ -4,6 +4,7 @@ export const notionToken = process.env.NEXT_PUBLIC_NOTION_FAMOUS_TOKEN;
 export const notionQuotesId = process.env.NEXT_PUBLIC_NOTION_FAMOUS_ID;
 
 export async function GET() {
+  let errMessage = "";
   try {
     const res = await fetch(
       `https://api.notion.com/v1/databases/${notionQuotesId}/query`,
@@ -15,7 +16,6 @@ export async function GET() {
         },
       }
     );
-
     const data = await res.json();
     const quotesData: LifeQuotesType[] = [];
     data.results.forEach((quotes, idx) => {
@@ -27,6 +27,7 @@ export async function GET() {
     });
     return Response.json({ data: quotesData });
   } catch (err) {
-    return Response.json({ data: "ERROR", status: 404 });
+    errMessage = err;
+    return Response.json({ data: errMessage, status: 404 });
   }
 }
