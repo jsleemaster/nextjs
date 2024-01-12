@@ -1,29 +1,25 @@
+import { Client } from "@notionhq/client";
+
 import { LifeQuotesType } from "types/lifeQuotes/type";
 
 export const notionToken = process.env.NEXT_PUBLIC_NOTION_FAMOUS_TOKEN;
 export const notionQuotesId = process.env.NEXT_PUBLIC_NOTION_FAMOUS_ID;
+const notion = new Client({
+  auth: process.env.NEXT_PUBLIC_NOTION_FAMOUS_TOKEN,
+});
 
 export async function GET() {
-  const res = await fetch(
-    `https://api.notion.com/v1/databases/${notionQuotesId}/query`,
-    {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${notionToken}`,
-        "Notion-Version": "2022-06-28",
-      },
-    }
-  );
-  const data = await res.json();
+  const { results } = await notion.databases.query({
+    database_id: notionQuotesId as string,
+  });
   const quotesData: LifeQuotesType[] = [];
-  if (data.results && data.results.length > 0) {
-    data.results.forEach((quotes, idx) => {
-      quotesData.push({
-        author: quotes.properties.태그,
-        title: quotes.properties.이름,
-        idx,
-      });
+  console.log(`results`, results);
+  results.forEach((quotes, idx) => {
+    quotesData.push({
+      author: quotes.properties.Author.select.name,
+      title: quotes.properties.Title.title[0].plain_text,
+      idx,
     });
-  }
-  return Response.json({ data: quotesData, test: data, test2: res });
+  });
+  return Response.json({ data: quotesData });
 }
