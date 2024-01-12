@@ -1,5 +1,5 @@
 export interface LifeQuotesType {
   idx: number;
-  author: string;
+  author: string | undefined;
   title: string;
 }
