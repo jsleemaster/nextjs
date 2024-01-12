@@ -2,8 +2,11 @@ import { useEffect, useRef, useState } from "react";
 
 import { LifeQuotesType } from "types/lifeQuotes/type";
 
+import useNotification from "./useNotification";
+
 export default () => {
-  const [time, setTime] = useState(2000);
+  const [time, setTime] = useState(30000);
+  const { newNotify } = useNotification();
   const [lifeQuotes, setLifeQuotes] = useState<LifeQuotesType>();
   const setTimeRef = useRef<NodeJS.Timer>();
 
@@ -17,15 +20,14 @@ export default () => {
     const lifeQuotesMessage = data.splice(randomIdx, 1)[0];
     setLifeQuotes(lifeQuotesMessage);
     setTimeRef.current = setTimeout(() => {
+      newNotify();
       getNewMessage(data);
-      const noti = new Notification("알림", { body: "명언이 왔어요" });
     }, time);
   };
   const getData = async () => {
     try {
       const res = await fetch("/api/lifeQuotes/");
       const { data } = await res.json();
-      console.log(`data`, data);
       getNewMessage(data);
     } catch (error) {
       return error;

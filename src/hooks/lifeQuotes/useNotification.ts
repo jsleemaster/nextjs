@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 export default () => {
   const [notificationPermission, setPermission] = useState("");
   const [notificationErrorMessage, setNotiErrorMessage] = useState("");
+  const newNotify = async () =>
+    new Notification("알림", { body: "새로운 알림이 왔어요" });
 
   const getPermittion = async () => {
     if (!("Notification" in window)) {
@@ -19,5 +21,5 @@ export default () => {
   useEffect(() => {
     getPermittion();
   }, []);
-  return { notificationErrorMessage, notificationPermission };
+  return { notificationErrorMessage, notificationPermission, newNotify };
 };
