@@ -19,8 +19,8 @@ export async function GET() {
   if (data.results && data.results.length > 0) {
     data.results.forEach((quotes, idx) => {
       quotesData.push({
-        author: quotes.properties.author,
-        title: quotes.properties.title,
+        author: quotes.properties.author.태그,
+        title: quotes.properties.title.이름,
         idx,
       });
     });
