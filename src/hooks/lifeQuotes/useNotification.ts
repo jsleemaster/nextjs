@@ -1,10 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default () => {
+  const notiRef = useRef<Notification>(null);
+
   const [notificationPermission, setPermission] = useState("");
   const [notificationErrorMessage, setNotiErrorMessage] = useState("");
-  const newNotify = async () =>
-    new Notification("알림", { body: "새로운 알림이 왔어요" });
+  const notiClick = () => {
+    if (notiRef && notiRef.current) {
+      notiRef.current.onclick = (event) => {
+        event.preventDefault();
+        window.focus();
+        if (notiRef.current) {
+          notiRef.current.close();
+        }
+      };
+    }
+  };
+  const newNotify = async () => {
+    new Notification("알림", { body: "새로운 명언이 왔어요" });
+    notiClick();
+  };
 
   const getPermittion = async () => {
     if (!("Notification" in window)) {
