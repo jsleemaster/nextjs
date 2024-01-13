@@ -1,9 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 const portFolioItems = [
-  { id: 1, name: "블로그", href: "blog" },
-  { id: 2, name: "날짜 계산", href: "dateCheck" },
-  { id: 3, name: "무엇이든 물어보세요.", href: "anyQuestion" },
-  { id: 4, name: "명언 알림", href: "lifeQuotes" },
+  { id: 1, name: "날짜 계산", href: "dateCheck" },
+  { id: 2, name: "무엇이든 물어보세요.", href: "anyQuestion" },
+  { id: 3, name: "명언 알림", href: "lifeQuotes" },
 ];
 export const portFolioSlice = createSlice({
   name: "portFolio",
