@@ -24,6 +24,7 @@ export default () => {
       getNewMessage(data);
     }, time);
   };
+
   const getData = async () => {
     try {
       const res = await fetch("/api/lifeQuotes/");
@@ -40,5 +41,6 @@ export default () => {
       clearTimeout(setTimeRef.current);
     };
   }, []);
+
   return { time, lifeQuotes, setTime };
 };
