@@ -1,5 +1,12 @@
-import { createTheme, style } from "@vanilla-extract/css";
-
+import { style, createTheme, globalStyle } from "@vanilla-extract/css";
+globalStyle("body", {
+  margin: 0,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  flexDirection: "column",
+  padding: 10,
+});
 export const [themeClass, vars] = createTheme({
   color: {
     brand: "blue",
@@ -9,20 +16,24 @@ export const [themeClass, vars] = createTheme({
   },
 });
 
-export const quotoesBox = style({
-  backgroundColor: vars.color.brand,
-  fontFamily: vars.font.body,
-  color: "black",
-  padding: 10,
+export const section = style({
   display: "flex",
-  height: "100%",
   justifyContent: "center",
   flexDirection: "column",
   alignItems: "center",
 });
-export const quotesTitle = style({
-  fontSize: 16,
-});
-export const quotesAuthor = style({
+
+export const label = style({
   fontSize: 14,
+});
+export const select = style({
+  padding: "0.3rem",
+  borderRadius: 5,
+});
+export const messageSection = style({
+  overflow: "hidden",
+  borderColor: "black",
+  boxShadow: "0 0 2px 0.5px",
+  borderRadius: "10px",
+  marginTop: "2rem",
 });

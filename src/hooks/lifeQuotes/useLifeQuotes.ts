@@ -5,7 +5,7 @@ import { LifeQuotesType } from "types/lifeQuotes/type";
 import useNotification from "./useNotification";
 
 export default () => {
-  const [time, setTime] = useState(30000);
+  const [time, setTime] = useState(1800000);
   const { newNotify } = useNotification();
   const [lifeQuotes, setLifeQuotes] = useState<LifeQuotesType>();
   const setTimeRef = useRef<NodeJS.Timer>();

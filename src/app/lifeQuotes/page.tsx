@@ -1,37 +1,36 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { Transition, CSSTransition } from "react-transition-group";
-
-import "./page.css";
 import LifeQuotesMessage from "components/lifeQuotes/Message";
 import useLifeQuotes from "hooks/lifeQuotes/useLifeQuotes";
 import useNotification from "hooks/lifeQuotes/useNotification";
 
 import * as styles from "./page.css";
-
 export default function LifeQuotes() {
   const { notificationErrorMessage, notificationPermission } =
     useNotification();
-  const { lifeQuotes, time } = useLifeQuotes();
-  const nodeRef = useRef(null);
-  const [test, setTest] = useState(false);
+  const { lifeQuotes, setTime, time } = useLifeQuotes();
   return (
     <>
-      {notificationPermission !== "granted" && <>{notificationErrorMessage}</>}
-      <button onClick={() => setTest(true)}>테스트</button>
-      <CSSTransition
-        nodeRef={nodeRef}
-        in={test}
-        timeout={300}
-        classNames={`test`}
-        unmountOnExit
-        onEnter={() => setTest(false)}
-        onExited={() => setTest(true)}
-      >
-        <div onClick={() => setTest(false)}>테스트</div>
-      </CSSTransition>
-      <LifeQuotesMessage styles={styles} lifeQuotes={lifeQuotes} />
+      <section className={styles.section}>
+        <label htmlFor="time" className={styles.label}>
+          시간 선택
+        </label>
+        <select
+          onChange={(e) => setTime(Number(e.target.value))}
+          id="time"
+          className={styles.select}
+          value={time}
+        >
+          <option value={1800000}>30분</option>
+          <option value={3600000}>1시간</option>
+        </select>
+      </section>
+      {notificationPermission !== "granted" && (
+        <section>{notificationErrorMessage}</section>
+      )}
+      <section className={styles.messageSection}>
+        <LifeQuotesMessage lifeQuotes={lifeQuotes} />
+      </section>
     </>
   );
 }
