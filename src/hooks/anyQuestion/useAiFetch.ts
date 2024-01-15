@@ -38,7 +38,6 @@ export const useAiFetch = async (
     const loading = !ok;
     return { loading, error, status } as UseAiFetchResult;
   } catch (error) {
-    console.log(error);
     return { error } as UseAiFetchResult;
   }
 };

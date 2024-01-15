@@ -9,7 +9,7 @@ import Head from "next/head";
 import { useState, FormEvent, useCallback, useEffect } from "react";
 
 import { ErrorDialog } from "components/ErrorDialog";
-import { useAiFetch } from "hooks/useAiFetch";
+import { useAiFetch } from "hooks/anyQuestion/useAiFetch";
 
 import { Item } from "./style";
 
@@ -18,15 +18,17 @@ const AnyQuestion = () => {
   const [promt, setPromt] = useState("");
   const [QnaList, setQnaList] = useState<string[]>([]);
   const [error, setError] = useState(false);
+
+  const FetchData = async () => {
+    const { text, ok } = await useAiFetch("openAi", promt);
+    if (!ok) {
+      setError(true);
+    }
+    setQuestion("");
+    setQnaList((prevQnaList) => [...prevQnaList, text]);
+  };
+
   useEffect(() => {
-    const FetchData = async () => {
-      const { text, ok } = await useAiFetch("openAi", promt);
-      if (!ok) {
-        setError(true);
-      }
-      setQuestion("");
-      setQnaList((prevQnaList) => [...prevQnaList, text]);
-    };
     if (promt) {
       FetchData();
     }
