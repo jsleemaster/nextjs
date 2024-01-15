@@ -9,7 +9,7 @@ import Head from "next/head";
 import { useState, FormEvent, useCallback, useEffect } from "react";
 
 import { ErrorDialog } from "components/ErrorDialog";
-import { useAiFetch } from "hooks/anyQuestion/useAiFetch";
+import { getFetch } from "hooks/anyQuestion/useAiFetch";
 
 import { Item } from "./style";
 
@@ -20,7 +20,7 @@ const AnyQuestion = () => {
   const [error, setError] = useState(false);
 
   const FetchData = async () => {
-    const { text, ok } = await useAiFetch("openAi", promt);
+    const { text, ok } = await getFetch("openAi", promt);
     if (!ok) {
       setError(true);
     }

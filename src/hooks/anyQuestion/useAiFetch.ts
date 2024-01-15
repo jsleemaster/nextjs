@@ -17,7 +17,7 @@ type UseAiFetchResult = {
   status: number;
 };
 
-export const useAiFetch = async (
+export const getFetch = async (
   url: string,
   prompt: string
 ): Promise<UseAiFetchResult> => {
