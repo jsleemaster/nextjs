@@ -3,12 +3,12 @@ import { useEffect, useState } from "react";
 import * as styles from "./Message.css";
 
 const Message = ({ lifeQuotes }) => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     if (lifeQuotes) {
-      setLoading(true);
+      setLoading(false);
       setTimeout(() => {
-        setLoading(false);
+        setLoading(true);
       }, 1000);
     }
   }, [lifeQuotes]);

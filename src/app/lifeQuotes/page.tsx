@@ -21,6 +21,7 @@ export default function LifeQuotes() {
           className={styles.select}
           value={time}
         >
+          <option value={900000}>10분</option>
           <option value={1800000}>30분</option>
           <option value={3600000}>1시간</option>
         </select>
