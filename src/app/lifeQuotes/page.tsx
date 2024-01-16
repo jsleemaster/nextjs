@@ -14,6 +14,14 @@ export default function LifeQuotes() {
   return (
     mounted && (
       <>
+        <section className={styles.sectionTitle}>명언 알리미</section>
+
+        {notificationPermission !== "granted" && (
+          <section>{notificationErrorMessage}</section>
+        )}
+        <section className={styles.messageSection}>
+          <LifeQuotesMessage lifeQuotes={lifeQuotes} />
+        </section>
         <section className={styles.section}>
           <label htmlFor="time" className={styles.label}>
             시간 선택
@@ -28,12 +36,6 @@ export default function LifeQuotes() {
             <option value={1800000}>30분</option>
             <option value={3600000}>1시간</option>
           </select>
-        </section>
-        {notificationPermission !== "granted" && (
-          <section>{notificationErrorMessage}</section>
-        )}
-        <section className={styles.messageSection}>
-          <LifeQuotesMessage lifeQuotes={lifeQuotes} />
         </section>
       </>
     )

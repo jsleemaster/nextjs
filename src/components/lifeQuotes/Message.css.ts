@@ -12,6 +12,7 @@ export const quotoesBox = style({
   alignItems: "center",
   transition: "opacity 1s ease-out, transform 1s ease-in",
   overflow: "hidden",
+  gap: 10,
 });
 export const quotesTitle = style({
   fontSize: 16,

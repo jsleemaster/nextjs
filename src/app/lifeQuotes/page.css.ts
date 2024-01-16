@@ -22,6 +22,12 @@ export const section = style({
   flexDirection: "column",
   alignItems: "center",
 });
+export const sectionTitle = style({
+  fontSize: 22,
+  marginBottom: 20,
+  fontWeight: "bold",
+  color: "#ff8870",
+});
 
 export const label = style({
   fontSize: 14,
@@ -33,7 +39,6 @@ export const select = style({
 export const messageSection = style({
   overflow: "hidden",
   borderColor: "black",
-  boxShadow: "0 0 2px 0.5px",
   borderRadius: "10px",
-  marginTop: "2rem",
+  margin: "2rem",
 });
