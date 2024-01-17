@@ -1,7 +1,6 @@
 import { style } from "@vanilla-extract/css";
 export const scrollActive = style({
   opacity: "0",
-  transform: "translateY(100%)",
 });
 export const quotoesBox = style({
   color: "black",

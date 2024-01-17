@@ -16,15 +16,16 @@ export const [themeClass, vars] = createTheme({
   },
 });
 
-export const section = style({
+export const sectionBottom = style({
   display: "flex",
   justifyContent: "center",
   flexDirection: "column",
   alignItems: "center",
+  marginBottom: 100,
 });
 export const sectionTitle = style({
   fontSize: 22,
-  marginBottom: 20,
+  marginTop: 100,
   fontWeight: "bold",
   color: "#ff8870",
 });
@@ -40,5 +41,7 @@ export const messageSection = style({
   overflow: "hidden",
   borderColor: "black",
   borderRadius: "10px",
-  margin: "2rem",
+  flex: 1,
+  display: "flex",
+  justifyContent: "center",
 });

@@ -22,7 +22,7 @@ export default function LifeQuotes() {
         <section className={styles.messageSection}>
           <LifeQuotesMessage lifeQuotes={lifeQuotes} />
         </section>
-        <section className={styles.section}>
+        <section className={styles.sectionBottom}>
           <label htmlFor="time" className={styles.label}>
             시간 선택
           </label>
