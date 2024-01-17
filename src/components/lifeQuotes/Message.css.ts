@@ -14,7 +14,7 @@ export const quotoesBox = style({
   gap: 10,
 });
 export const quotesTitle = style({
-  fontSize: 16,
+  fontSize: 20,
   fontWeight: "bold",
 });
 export const quotesAuthor = style({

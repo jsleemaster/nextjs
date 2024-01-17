@@ -21,7 +21,7 @@ export const sectionBottom = style({
   justifyContent: "center",
   flexDirection: "column",
   alignItems: "center",
-  marginBottom: 100,
+  marginBottom: 140,
 });
 export const sectionTitle = style({
   fontSize: 22,
