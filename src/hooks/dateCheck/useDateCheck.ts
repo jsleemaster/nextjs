@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 
-import { diffDay, nowDateTime, year } from "hooks/useDayjs";
+import { nowDateTime } from "hooks/useDayjs";
 
 export default () => {
   const [nextYear, _] = useState(

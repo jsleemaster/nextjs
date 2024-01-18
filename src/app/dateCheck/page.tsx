@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  Container,
-  Main,
-  DateSpan,
-  NextDateSpan,
-} from "styles/dateCheck/style";
+import { section, main, span, nextDateSpan } from "styles/dateCheck/style.css";
 
 import useDateCheck from "hooks/dateCheck/useDateCheck";
 import { diffDay, year } from "hooks/useDayjs";
@@ -17,20 +12,21 @@ export default function DateCheck() {
 
   return (
     mounted && (
-      <Container>
-        <Main>
-          <DateSpan>
+      <main className={main}>
+        <section className={section}>
+          <span className={span}>
             현재 : {date}
             <br />
             {year(nextYear)}년 까지 :
-            <NextDateSpan>
+            <span className={nextDateSpan}>
               {" "}
               <b>{diffDay(nextYear, date)}일 </b>
               {nextYearTime}
-            </NextDateSpan>
-          </DateSpan>
-        </Main>
-      </Container>
+            </span>
+          </span>
+        </section>
+        <section className={section}></section>
+      </main>
     )
   );
 }

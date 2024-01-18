@@ -1,11 +1,12 @@
 "use client";
 
+import * as styles from "styles/lifeQuotes/page.css";
+
 import LifeQuotesMessage from "components/lifeQuotes/Message";
 import useLifeQuotes from "hooks/lifeQuotes/useLifeQuotes";
 import useNotification from "hooks/lifeQuotes/useNotification";
 import useInit from "hooks/useInit";
 
-import * as styles from "./page.css";
 export default function LifeQuotes() {
   const mounted = useInit();
   const { notificationErrorMessage, notificationPermission } =
