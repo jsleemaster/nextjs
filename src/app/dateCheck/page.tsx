@@ -1,34 +1,19 @@
 "use client";
 
-import dayjs from "dayjs";
-import { useEffect, useState } from "react";
+import {
+  Container,
+  Main,
+  DateSpan,
+  NextDateSpan,
+} from "styles/dateCheck/style";
 
-import { diffDay, nowDateTime, year } from "hooks/useDayjs";
+import useDateCheck from "hooks/dateCheck/useDateCheck";
+import { diffDay, year } from "hooks/useDayjs";
 import useInit from "hooks/useInit";
-
-import { Container, Main, DateSpan, NextDateSpan } from "./style";
 
 export default function DateCheck() {
   const mounted = useInit();
-  const [nextYear, _] = useState(
-    dayjs().add(1, "year").startOf("years").format("YYYY-MM-DD HH:mm:ss")
-  );
-  const [date, setDate] = useState(nowDateTime());
-  const [nextYearTime, setnextYearTime] = useState(nowDateTime());
-  const [diffDate, setDiffDate] = useState(0);
-
-  useEffect(() => {
-    const timeInterval = setInterval(() => {
-      setDate(nowDateTime());
-    }, 100);
-
-    return () => clearInterval(timeInterval);
-  }, []);
-
-  useEffect(() => {
-    setDiffDate(dayjs(date).diff(nextYear));
-    setnextYearTime(dayjs(nextYear).subtract(diffDate).format("HH시mm분ss초"));
-  }, [date, diffDate, nextYear]);
+  const { nextYear, date, nextYearTime } = useDateCheck();
 
   return (
     mounted && (

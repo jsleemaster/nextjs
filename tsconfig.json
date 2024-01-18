@@ -14,6 +14,7 @@
       "store/*": ["./src/store/*"],
       "hooks/*": ["./src/hooks/*"],
       "types/*": ["./src/types/*"],
+      "styles/*": ["./src/styles/*"],
       "app/api/*": ["./src/app/api/*"]
     },
     "allowJs": true,
