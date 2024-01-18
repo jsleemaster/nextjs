@@ -3,11 +3,11 @@
 import LifeQuotesMessage from "components/lifeQuotes/Message";
 import useLifeQuotes from "hooks/lifeQuotes/useLifeQuotes";
 import useNotification from "hooks/lifeQuotes/useNotification";
-import useMouted from "hooks/useMouted";
+import useInit from "hooks/useInit";
 
 import * as styles from "./page.css";
 export default function LifeQuotes() {
-  const mounted = useMouted();
+  const mounted = useInit();
   const { notificationErrorMessage, notificationPermission } =
     useNotification();
   const { lifeQuotes, setTime, time } = useLifeQuotes();
