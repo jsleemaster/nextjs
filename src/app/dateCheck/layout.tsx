@@ -1,8 +1,6 @@
 import { Metadata } from "next";
 import { ReactNode } from "react";
 
-import Providers from "src/store/provider";
-
 export const metadata: Metadata = {
   title: "시계(시간계산)",
   description: "날짜 계산, 내년까지 얼마나 남았을까?, 날짜 차이 계산기",
@@ -18,5 +16,10 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  return <Providers>{children}</Providers>;
+  return (
+    <html lang="kr">
+      <link rel="icon" href="/favicon.ico" />
+      <body>{children}</body>
+    </html>
+  );
 }

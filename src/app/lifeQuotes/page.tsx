@@ -1,6 +1,6 @@
 "use client";
 
-import * as styles from "styles/lifeQuotes/page.css";
+import * as styles from "styles/lifeQuotes/style.css";
 
 import LifeQuotesMessage from "components/lifeQuotes/Message";
 import useLifeQuotes from "hooks/lifeQuotes/useLifeQuotes";
