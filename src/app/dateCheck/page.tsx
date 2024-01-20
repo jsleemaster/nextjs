@@ -25,7 +25,15 @@ export default function DateCheck() {
             </span>
           </span>
         </section>
-        <section className={section}></section>
+        <section className={section}>
+          <h3>날짜 차이 계산</h3>
+        </section>
+        <section className={section}>
+          <h3>경과 시간계산</h3>
+        </section>
+        <section className={section}>
+          <h3>시간 변환</h3>
+        </section>
       </main>
     )
   );
