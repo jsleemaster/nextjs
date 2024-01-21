@@ -1,4 +1,5 @@
 import { style, createTheme, globalStyle } from "@vanilla-extract/css";
+import { primary } from "styles/color.css";
 globalStyle("body", {
   margin: 0,
   display: "flex",
@@ -27,7 +28,7 @@ export const sectionTitle = style({
   fontSize: 22,
   marginTop: 100,
   fontWeight: "bold",
-  color: "#ff8870",
+  color: primary,
 });
 
 export const label = style({

@@ -1,7 +1,4 @@
-import { style } from "@vanilla-extract/css";
-
-export const flexColumnCenter = style({
+export const center = {
   display: "flex",
   justifyContent: "center",
-  flexDirection: "column",
-});
+};

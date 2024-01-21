@@ -1,5 +1,6 @@
 import { style, globalStyle, createContainer } from "@vanilla-extract/css";
-import { flexColumnCenter } from "styles/flex.css";
+import { primary, white } from "styles/color.css";
+import * as flex from "styles/flex.css";
 import { fontSizeSm } from "styles/font.css";
 import { responsiveStyle } from "styles/responsive.css";
 
@@ -9,14 +10,15 @@ globalStyle("body", {
   justifyContent: "center",
   alignItems: "center",
   flexDirection: "column",
-  padding: 10,
 });
 
 const dateContainer = createContainer();
 
 export const main = style({
   display: "flex",
+  flexDirection: "column",
   containerName: dateContainer,
+  width: "100%",
   "@container": {
     [`${dateContainer} (min-width: 768px)`]: {
       padding: 10,
@@ -26,22 +28,40 @@ export const main = style({
 
 export const sectionTitle = style([
   fontSizeSm,
-  responsiveStyle({ tablet: flexColumnCenter, desktop: flexColumnCenter }),
   {
     alignItems: "center",
     marginBottom: 140,
   },
 ]);
 
-export const section = style([
-  flexColumnCenter,
+export const sectionHeader = style([
+  {
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column",
+  },
   {
     alignItems: "center",
-    marginBottom: 140,
+    backgroundColor: primary,
+    color: white,
+    fontSize: 20,
+    padding: "0.3rem",
   },
 ]);
+
+export const section = style([
+  responsiveStyle({
+    tablet: { display: flex.center },
+    desktop: {
+      display: "flex",
+      justifyContent: "center",
+      flexDirection: "column",
+    },
+  }),
+  {
+    flex: 1,
+  },
+]);
+export const article = style([]);
 export const span = style([fontSizeSm]);
-export const nextDateSpan = style({
-  padding: "0.3rem",
-  borderRadius: 5,
-});
+export const nextDateSpan = style([fontSizeSm]);
