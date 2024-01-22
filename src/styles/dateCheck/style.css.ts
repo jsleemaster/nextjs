@@ -34,7 +34,7 @@ export const sectionTitle = style([
   },
 ]);
 
-export const sectionHeader = style([
+export const header = style([
   {
     display: "flex",
     justifyContent: "center",

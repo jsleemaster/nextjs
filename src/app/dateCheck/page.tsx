@@ -1,7 +1,15 @@
 "use client";
 
-import * as styles from "styles/dateCheck/style.css";
+import {
+  main,
+  header,
+  span,
+  section,
+  nextDateSpan,
+  article,
+} from "styles/dateCheck/style.css";
 
+import DiffrentDate from "components/dateCheck/DiffrentDate";
 import useDateCheck from "hooks/dateCheck/useDateCheck";
 import { diffDay, year } from "hooks/useDayjs";
 import useInit from "hooks/useInit";
@@ -12,28 +20,34 @@ export default function DateCheck() {
 
   return (
     mounted && (
-      <main className={styles.main}>
-        <section className={styles.sectionHeader}>
-          <span className={styles.span}>
+      <main className={main}>
+        <header className={header}>
+          <span className={span}>
             <b>지금 시간은? </b>
             {date}
           </span>
-          <span className={styles.nextDateSpan}>
+          <span className={nextDateSpan}>
             <b>{year(nextYear)}년 까지 : </b>
             {diffDay(nextYear, date)}일{nextYearTime}
           </span>
-        </section>
-        <section className={styles.section}>
+        </header>
+        <section className={section}>
           <article>
             <h3>날짜 차이 계산</h3>
+            <DiffrentDate />
           </article>
-          <article className={styles.article}>
+          <article className={article}>
             <h3>경과 시간계산</h3>
           </article>
-          <article className={styles.article}>
+          <article className={article}>
             <h3>시간 변환</h3>
           </article>
         </section>
+        {/* <aside>
+          <h2>광고</h2>
+          <p>광고 내용입니다.</p>
+        </aside> */}
+        <footer>jsleemaster@gmail.com @{year()}</footer>
       </main>
     )
   );
