@@ -1,4 +1,4 @@
-import { dateInputBox } from "styles/dateCheck/input.css";
+import { dateInputBox, dateLabel } from "styles/dateCheck/input.css";
 
 interface DateInputTypes {
   label: string;
@@ -10,7 +10,11 @@ interface DateInputTypes {
 const DateInput = ({ label, ...props }: DateInputTypes) => {
   return (
     <div className={dateInputBox}>
-      {label && <label htmlFor={props?.id}>{label}</label>}
+      {label && (
+        <label htmlFor={props?.id} className={dateLabel}>
+          {label}
+        </label>
+      )}
       <input
         type="number"
         tabIndex={props?.tabIndex}

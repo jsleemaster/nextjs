@@ -1,9 +1,14 @@
+import {
+  dateInputButton,
+  dateInputContainer,
+} from "styles/dateCheck/input.css";
+
 import DateInput from "./DateInput";
 
 const DiffrentDate = () => {
   return (
     <>
-      <article>
+      <article className={dateInputContainer}>
         <DateInput
           tabIndex={1}
           placeholder="년도"
@@ -23,7 +28,7 @@ const DiffrentDate = () => {
           label="일"
         />
       </article>
-      <article>
+      <article className={dateInputContainer}>
         <DateInput
           tabIndex={4}
           placeholder="년도"
@@ -38,7 +43,7 @@ const DiffrentDate = () => {
         />
         <DateInput tabIndex={6} placeholder="일" id="end_day_date" label="일" />
       </article>
-      <button type="submit" tabIndex={7}>
+      <button type="submit" tabIndex={7} className={dateInputButton}>
         입력
       </button>
     </>

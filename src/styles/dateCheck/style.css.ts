@@ -1,5 +1,5 @@
 import { style, globalStyle, createContainer } from "@vanilla-extract/css";
-import { primary, white } from "styles/color.css";
+import { primary, seconds, white } from "styles/color.css";
 import * as flex from "styles/flex.css";
 import { fontSizeSm } from "styles/font.css";
 import { responsiveStyle } from "styles/responsive.css";
@@ -10,6 +10,24 @@ globalStyle("body", {
   justifyContent: "center",
   alignItems: "center",
   flexDirection: "column",
+});
+
+globalStyle("input", {
+  padding: 2,
+  fontSize: 15,
+});
+globalStyle("button", {
+  backgroundColor: primary,
+  border: "none",
+  borderRadius: 5,
+  padding: "0.3rem",
+  color: white,
+  fontWeight: "bold",
+  cursor: "pointer",
+  transition: "background-color 0.1s ease-in",
+});
+globalStyle("button:hover", {
+  backgroundColor: seconds,
 });
 
 const dateContainer = createContainer();
@@ -65,6 +83,8 @@ export const article = style({
   margin: "0.8rem",
   padding: "0.8rem",
   flex: 1,
+  display: "flex",
+  flexDirection: "column",
 });
 export const span = style([fontSizeSm]);
 export const nextDateSpan = style([fontSizeSm]);
