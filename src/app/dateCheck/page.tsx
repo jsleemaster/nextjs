@@ -6,9 +6,9 @@ import {
   span,
   section,
   nextDateSpan,
-  article,
 } from "styles/dateCheck/style.css";
 
+import DateCheckContainer from "components/dateCheck/DateCheckContainer";
 import DiffrentDate from "components/dateCheck/DiffrentDate";
 import useDateCheck from "hooks/dateCheck/useDateCheck";
 import { diffDay, year } from "hooks/useDayjs";
@@ -32,16 +32,11 @@ export default function DateCheck() {
           </span>
         </header>
         <section className={section}>
-          <article>
-            <h3>날짜 차이 계산</h3>
+          <DateCheckContainer title="날짜 차이계산">
             <DiffrentDate />
-          </article>
-          <article className={article}>
-            <h3>경과 시간계산</h3>
-          </article>
-          <article className={article}>
-            <h3>시간 변환</h3>
-          </article>
+          </DateCheckContainer>
+          <DateCheckContainer title="경과 시간계산"></DateCheckContainer>
+          <DateCheckContainer title="시간 변환"></DateCheckContainer>
         </section>
         {/* <aside>
           <h2>광고</h2>

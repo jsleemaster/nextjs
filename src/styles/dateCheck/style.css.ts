@@ -51,17 +51,20 @@ export const header = style([
 
 export const section = style([
   responsiveStyle({
-    tablet: { display: flex.center },
+    tablet: { ...flex.ColumnCenter },
     desktop: {
-      display: "flex",
-      justifyContent: "center",
-      flexDirection: "column",
+      ...flex.center,
     },
   }),
   {
     flex: 1,
   },
 ]);
-export const article = style([]);
+export const article = style({
+  boxShadow: "1px 1px 3px 0 rgba(0,0,0,0.6)",
+  margin: "0.8rem",
+  padding: "0.8rem",
+  flex: 1,
+});
 export const span = style([fontSizeSm]);
 export const nextDateSpan = style([fontSizeSm]);
