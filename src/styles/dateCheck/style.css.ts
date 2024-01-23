@@ -87,4 +87,5 @@ export const article = style({
   flexDirection: "column",
 });
 export const span = style([fontSizeSm]);
+export const footer = style([fontSizeSm, { textAlign: "center" }]);
 export const nextDateSpan = style([fontSizeSm]);

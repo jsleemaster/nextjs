@@ -4,6 +4,7 @@ import {
   main,
   header,
   span,
+  footer,
   section,
   nextDateSpan,
 } from "styles/dateCheck/style.css";
@@ -42,7 +43,7 @@ export default function DateCheck() {
           <h2>광고</h2>
           <p>광고 내용입니다.</p>
         </aside> */}
-        <footer>jsleemaster@gmail.com @{year()}</footer>
+        <footer className={footer}>jsleemaster@gmail.com @{year()}</footer>
       </main>
     )
   );
