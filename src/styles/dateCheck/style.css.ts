@@ -13,9 +13,13 @@ globalStyle("body", {
 });
 
 globalStyle("input", {
-  padding: 2,
+  padding: 4,
   fontSize: 15,
 });
+globalStyle("input:focus", {
+  outlineColor: primary,
+});
+
 globalStyle("button", {
   backgroundColor: primary,
   border: "none",
