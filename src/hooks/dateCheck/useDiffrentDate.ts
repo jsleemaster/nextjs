@@ -6,6 +6,8 @@ interface DiffrentDateState {
   end_year: string;
   end_month: string;
   end_day: string;
+  result: string;
+  reset: string;
 }
 const init: DiffrentDateState = {
   start_year: "",
@@ -14,12 +16,14 @@ const init: DiffrentDateState = {
   end_year: "",
   end_month: "",
   end_day: "",
+  result: "",
+  reset: "",
 };
 
 type DiffrentDateAction = keyof DiffrentDateState;
 const reducer = (
   state: DiffrentDateState,
-  action: { type: DiffrentDateAction; value: string }
+  action: { type: DiffrentDateAction; value?: string }
 ) => {
   switch (action.type) {
     case "start_year":
@@ -34,10 +38,14 @@ const reducer = (
       return { ...state, end_month: action.value };
     case "end_day":
       return { ...state, end_day: action.value };
+    case "reset":
+      return init;
   }
 };
 export default () => {
   const [diffState, setDiffrentDate] = useReducer(reducer, init);
 
-  return { diffState, setDiffrentDate };
+  const reset = () => setDiffrentDate({ type: "reset" });
+  const submit = () => {};
+  return { diffState, setDiffrentDate, submit, reset };
 };
