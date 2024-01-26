@@ -28,7 +28,7 @@ export const dateInputBox = style([
 ]);
 
 export const dateInputButton = style({
-  width: "4rem",
+  width: "5rem",
   height: "2rem",
   fontSize: 16,
   marginTop: "1rem",
