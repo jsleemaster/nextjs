@@ -95,7 +95,7 @@ const DiffrentDate = () => {
           className={dateInputButton}
           onClick={submit}
         >
-          입력
+          계산하기
         </button>
       </article>
     </>
