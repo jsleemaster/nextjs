@@ -1,6 +1,8 @@
 import {
   dateInputButton,
   dateInputContainer,
+  dateButtonContainer,
+  dateInputTitle,
 } from "styles/dateCheck/input.css";
 
 import useDiffrentDate from "hooks/dateCheck/useDiffrentDate";
@@ -13,6 +15,7 @@ const DiffrentDate = () => {
   return (
     <>
       <article className={dateInputContainer}>
+        <h3 className={dateInputTitle}>시작 시간</h3>
         <DateInput
           tabIndex={1}
           placeholder="년도"
@@ -45,6 +48,7 @@ const DiffrentDate = () => {
         />
       </article>
       <article className={dateInputContainer}>
+        <h3 className={dateInputTitle}>종료 시간</h3>
         <DateInput
           tabIndex={4}
           placeholder="년도"
@@ -76,22 +80,24 @@ const DiffrentDate = () => {
           }
         />
       </article>
-      <button
-        type="submit"
-        tabIndex={8}
-        className={dateInputButton}
-        onClick={reset}
-      >
-        초기화
-      </button>
-      <button
-        type="submit"
-        tabIndex={7}
-        className={dateInputButton}
-        onClick={submit}
-      >
-        입력
-      </button>
+      <article className={dateButtonContainer}>
+        <button
+          type="submit"
+          tabIndex={8}
+          className={dateInputButton}
+          onClick={reset}
+        >
+          초기화
+        </button>
+        <button
+          type="submit"
+          tabIndex={7}
+          className={dateInputButton}
+          onClick={submit}
+        >
+          입력
+        </button>
+      </article>
     </>
   );
 };

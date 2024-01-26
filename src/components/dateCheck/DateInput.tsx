@@ -29,6 +29,7 @@ const DateInput = ({ label, onChange, ...props }: DateInputTypes) => {
         id={props?.id}
         onChange={(e) => onChange(e)}
         maxLength={props?.maxLength}
+        min={0}
       />
     </div>
   );
