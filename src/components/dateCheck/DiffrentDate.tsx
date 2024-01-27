@@ -10,12 +10,12 @@ import useDiffrentDate from "hooks/dateCheck/useDiffrentDate";
 import DateInput from "./DateInput";
 
 const DiffrentDate = () => {
-  const { diffState, setDiffrentDate, submit, reset } = useDiffrentDate();
+  const { setDiffrentDate, submit, reset, result } = useDiffrentDate();
 
   return (
     <>
       <article className={dateInputContainer}>
-        <h3 className={dateInputTitle}>시작 시간</h3>
+        <h3 className={dateInputTitle}>시작 일</h3>
         <DateInput
           tabIndex={1}
           placeholder="년도"
@@ -48,7 +48,7 @@ const DiffrentDate = () => {
         />
       </article>
       <article className={dateInputContainer}>
-        <h3 className={dateInputTitle}>종료 시간</h3>
+        <h3 className={dateInputTitle}>종료 일</h3>
         <DateInput
           tabIndex={4}
           placeholder="년도"
@@ -80,6 +80,7 @@ const DiffrentDate = () => {
           }
         />
       </article>
+      <article>{result && result.elapsedDays}</article>
       <article className={dateButtonContainer}>
         <button
           type="submit"

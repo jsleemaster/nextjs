@@ -1,51 +1,77 @@
-import { useReducer } from "react";
-interface DiffrentDateState {
-  start_year: string;
-  start_month: string;
-  start_day: string;
-  end_year: string;
-  end_month: string;
-  end_day: string;
+import dayjs from "dayjs";
+import duration from "dayjs/plugin/duration";
+dayjs.extend(duration);
+import { useReducer, useState } from "react";
+interface DateState {
+  year: string;
+  month: string;
+  day: string;
+}
+
+interface DifferentDateState {
+  start: DateState;
+  end: DateState;
   result: string;
   reset: string;
 }
-const init: DiffrentDateState = {
-  start_year: "",
-  start_month: "",
-  start_day: "",
-  end_year: "",
-  end_month: "",
-  end_day: "",
+
+const init: DifferentDateState = {
+  start: { year: "", month: "", day: "" },
+  end: { year: "", month: "", day: "" },
   result: "",
   reset: "",
 };
-
-type DiffrentDateAction = keyof DiffrentDateState;
+type DiifrentDateActionType =
+  | "start_year"
+  | "start_month"
+  | "start_day"
+  | "end_year"
+  | "end_month"
+  | "end_day"
+  | "reset";
 const reducer = (
-  state: DiffrentDateState,
-  action: { type: DiffrentDateAction; value?: string }
+  state: DifferentDateState,
+  action: { type: DiifrentDateActionType; value?: string }
 ) => {
   switch (action.type) {
     case "start_year":
-      return { ...state, start_year: action.value };
+      return { ...state, start: { ...state.start, year: action.value } };
     case "start_month":
-      return { ...state, start_month: action.value };
+      return { ...state, start: { ...state.start, month: action.value } };
     case "start_day":
-      return { ...state, start_day: action.value };
+      return { ...state, start: { ...state.start, day: action.value } };
     case "end_year":
-      return { ...state, end_year: action.value };
+      return { ...state, end: { ...state.end, year: action.value } };
     case "end_month":
-      return { ...state, end_month: action.value };
+      return { ...state, end: { ...state.end, month: action.value } };
     case "end_day":
-      return { ...state, end_day: action.value };
+      return { ...state, end: { ...state.end, day: action.value } };
     case "reset":
       return init;
   }
 };
+interface DifferentDateResultState {
+  elapsedDays: number;
+}
 export default () => {
   const [diffState, setDiffrentDate] = useReducer(reducer, init);
+  const [result, setResult] = useState<DifferentDateResultState>();
 
   const reset = () => setDiffrentDate({ type: "reset" });
-  const submit = () => {};
-  return { diffState, setDiffrentDate, submit, reset };
+  const submit = () => {
+    const startDate = dayjs(
+      `${diffState.start.year} ${diffState.start.month} ${diffState.start.day}`
+    );
+    const endDate = dayjs(
+      `${diffState.end.year} ${diffState.end.month} ${diffState.end.day}`
+    );
+
+    const elapsedDays = endDate.diff(startDate, "day");
+
+    setResult({
+      elapsedDays,
+    });
+  };
+
+  return { diffState, setDiffrentDate, submit, reset, result };
 };
