@@ -7,6 +7,7 @@ interface DateInputTypes {
   placeholder: string;
   maxLength?: number;
   id: string;
+  max?: number;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -30,6 +31,7 @@ const DateInput = ({ label, onChange, ...props }: DateInputTypes) => {
         onChange={(e) => onChange(e)}
         maxLength={props?.maxLength}
         min={0}
+        max={props?.max}
       />
     </div>
   );
