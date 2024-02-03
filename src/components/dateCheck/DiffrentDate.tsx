@@ -1,11 +1,10 @@
+import useDiffrentDate from "hooks/dateCheck/useDiffrentDate";
 import {
   dateInputButton,
   dateInputContainer,
   dateButtonContainer,
   dateInputTitle,
 } from "styles/dateCheck/input.css";
-
-import useDiffrentDate from "hooks/dateCheck/useDiffrentDate";
 
 import DateInput from "./DateInput";
 
@@ -31,6 +30,7 @@ const DiffrentDate = () => {
           placeholder="월"
           id="start_month_date"
           label="월"
+          max={12}
           maxLength={2}
           onChange={(e) =>
             setDiffrentDate({ type: "start_month", value: e.target.value })
@@ -41,6 +41,7 @@ const DiffrentDate = () => {
           placeholder="일"
           id="start_day_date"
           label="일"
+          max={31}
           maxLength={2}
           onChange={(e) =>
             setDiffrentDate({ type: "start_day", value: e.target.value })
@@ -65,6 +66,7 @@ const DiffrentDate = () => {
           id="end_month_date"
           label="월"
           maxLength={2}
+          max={12}
           onChange={(e) =>
             setDiffrentDate({ type: "end_month", value: e.target.value })
           }
@@ -75,12 +77,23 @@ const DiffrentDate = () => {
           id="end_day_date"
           label="일"
           maxLength={2}
+          max={31}
           onChange={(e) =>
             setDiffrentDate({ type: "end_day", value: e.target.value })
           }
         />
       </article>
-      <article>{result && result.elapsedDays}</article>
+      <article>
+        {result && (
+          <>
+            {result.elapsedDays}일{" "}
+            {result.years &&
+              `${result.years} 년 ${result.months} 개월 ${result.remainingDays} 일`}
+            {result.months &&
+              `${result.months} 개월 ${result.remainingDays} 일`}
+          </>
+        )}
+      </article>
       <article className={dateButtonContainer}>
         <button
           type="submit"
