@@ -52,6 +52,9 @@ const reducer = (
 };
 interface DifferentDateResultState {
   elapsedDays: number;
+  years: number;
+  months?: number;
+  remainingDays?: number;
 }
 export default () => {
   const [diffState, setDiffrentDate] = useReducer(reducer, init);
@@ -67,9 +70,11 @@ export default () => {
     );
 
     const elapsedDays = endDate.diff(startDate, "day");
+    const years = endDate.diff(startDate, "year");
 
     setResult({
       elapsedDays,
+      years,
     });
   };
 
