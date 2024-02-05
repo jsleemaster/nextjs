@@ -71,10 +71,12 @@ export default () => {
 
     const elapsedDays = endDate.diff(startDate, "day");
     const years = endDate.diff(startDate, "year");
+    const months = endDate.diff(startDate, "month");
 
     setResult({
       elapsedDays,
       years,
+      months,
     });
   };
 
