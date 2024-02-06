@@ -1,24 +1,25 @@
 import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
 dayjs.extend(duration);
-import { useReducer, useState } from "react";
+import { useReducer } from "react";
+
 interface DateState {
-  year: string;
-  month: string;
-  day: string;
+  year: string | number;
+  month: string | number;
+  day: string | number;
 }
 
 interface DifferentDateState {
   start: DateState;
   end: DateState;
-  result: string;
+  result: DateState;
   reset: string;
 }
 
 const init: DifferentDateState = {
   start: { year: "", month: "", day: "" },
   end: { year: "", month: "", day: "" },
-  result: "",
+  result: { year: "", month: "", day: "" },
   reset: "",
 };
 type DiifrentDateActionType =
@@ -28,10 +29,12 @@ type DiifrentDateActionType =
   | "end_year"
   | "end_month"
   | "end_day"
-  | "reset";
+  | "reset"
+  | "result";
+
 const reducer = (
   state: DifferentDateState,
-  action: { type: DiifrentDateActionType; value?: string }
+  action: { type: DiifrentDateActionType; value?: string; result?: DateState }
 ) => {
   switch (action.type) {
     case "start_year":
@@ -46,21 +49,17 @@ const reducer = (
       return { ...state, end: { ...state.end, month: action.value } };
     case "end_day":
       return { ...state, end: { ...state.end, day: action.value } };
+    case "result":
+      return { ...state, result: action.value };
     case "reset":
       return init;
   }
 };
-interface DifferentDateResultState {
-  elapsedDays: number;
-  years: number;
-  months?: number;
-  remainingDays?: number;
-}
-export default () => {
-  const [diffState, setDiffrentDate] = useReducer(reducer, init);
-  const [result, setResult] = useState<DifferentDateResultState>();
 
-  const reset = () => setDiffrentDate({ type: "reset" });
+export default () => {
+  const [diffState, diffAction] = useReducer(reducer, init);
+
+  const reset = () => diffAction({ type: "reset" });
   const submit = () => {
     const startDate = dayjs(
       `${diffState.start.year} ${diffState.start.month} ${diffState.start.day}`
@@ -68,17 +67,12 @@ export default () => {
     const endDate = dayjs(
       `${diffState.end.year} ${diffState.end.month} ${diffState.end.day}`
     );
+    const day = endDate.diff(startDate, "day");
+    const year = endDate.diff(startDate, "year");
+    const month = endDate.diff(startDate, "month");
 
-    const elapsedDays = endDate.diff(startDate, "day");
-    const years = endDate.diff(startDate, "year");
-    const months = endDate.diff(startDate, "month");
-
-    setResult({
-      elapsedDays,
-      years,
-      months,
-    });
+    diffAction({ type: "result", result: { day, year, month } });
   };
 
-  return { diffState, setDiffrentDate, submit, reset, result };
+  return { diffState, diffAction, submit, reset };
 };
