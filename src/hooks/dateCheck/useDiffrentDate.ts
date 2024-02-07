@@ -50,7 +50,7 @@ const reducer = (
     case "end_day":
       return { ...state, end: { ...state.end, day: action.value } };
     case "result":
-      return { ...state, result: action.value };
+      return { ...state, result: { ...action.result } };
     case "reset":
       return init;
   }

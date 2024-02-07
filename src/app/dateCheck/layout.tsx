@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="kr">
+    <html lang="ko">
       <link rel="icon" href="/time_favicon.ico" />
       <body>{children}</body>
     </html>

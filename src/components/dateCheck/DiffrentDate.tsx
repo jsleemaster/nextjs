@@ -9,7 +9,7 @@ import {
 import DateInput from "./DateInput";
 
 const DiffrentDate = () => {
-  const { setDiffrentDate, submit, reset, result } = useDiffrentDate();
+  const { diffState, diffAction, submit, reset } = useDiffrentDate();
 
   return (
     <>
@@ -22,7 +22,7 @@ const DiffrentDate = () => {
           label="년"
           maxLength={4}
           onChange={(e) =>
-            setDiffrentDate({ type: "start_year", value: e.target.value })
+            diffAction({ type: "start_year", value: e.target.value })
           }
         />
         <DateInput
@@ -33,7 +33,7 @@ const DiffrentDate = () => {
           max={12}
           maxLength={2}
           onChange={(e) =>
-            setDiffrentDate({ type: "start_month", value: e.target.value })
+            diffAction({ type: "start_month", value: e.target.value })
           }
         />
         <DateInput
@@ -44,7 +44,7 @@ const DiffrentDate = () => {
           max={31}
           maxLength={2}
           onChange={(e) =>
-            setDiffrentDate({ type: "start_day", value: e.target.value })
+            diffAction({ type: "start_day", value: e.target.value })
           }
         />
       </article>
@@ -57,7 +57,7 @@ const DiffrentDate = () => {
           label="년"
           maxLength={4}
           onChange={(e) =>
-            setDiffrentDate({ type: "end_year", value: e.target.value })
+            diffAction({ type: "end_year", value: e.target.value })
           }
         />
         <DateInput
@@ -68,7 +68,7 @@ const DiffrentDate = () => {
           maxLength={2}
           max={12}
           onChange={(e) =>
-            setDiffrentDate({ type: "end_month", value: e.target.value })
+            diffAction({ type: "end_month", value: e.target.value })
           }
         />
         <DateInput
@@ -79,21 +79,11 @@ const DiffrentDate = () => {
           maxLength={2}
           max={31}
           onChange={(e) =>
-            setDiffrentDate({ type: "end_day", value: e.target.value })
+            diffAction({ type: "end_day", value: e.target.value })
           }
         />
       </article>
-      <article>
-        {result && (
-          <>
-            {result.elapsedDays}일{" "}
-            {result.years &&
-              `${result.years} 년 ${result.months} 개월 ${result.remainingDays} 일`}
-            {result.months &&
-              `${result.months} 개월 ${result.remainingDays} 일`}
-          </>
-        )}
-      </article>
+      <article>{diffState?.result && <>{diffState.result.day}</>}</article>
       <article className={dateButtonContainer}>
         <button
           type="submit"
