@@ -1,11 +1,12 @@
 "use client";
 
-import * as styles from "styles/lifeQuotes/style.css";
+import { Suspense } from "react";
 
 import LifeQuotesMessage from "components/lifeQuotes/Message";
 import useLifeQuotes from "hooks/lifeQuotes/useLifeQuotes";
 import useNotification from "hooks/lifeQuotes/useNotification";
 import useInit from "hooks/useInit";
+import * as styles from "styles/lifeQuotes/style.css";
 
 export default function LifeQuotes() {
   const mounted = useInit();
@@ -21,7 +22,9 @@ export default function LifeQuotes() {
           <section>{notificationErrorMessage}</section>
         )}
         <section className={styles.messageSection}>
-          <LifeQuotesMessage lifeQuotes={lifeQuotes} />
+          <Suspense fallback={<article>loading..</article>}>
+            <LifeQuotesMessage lifeQuotes={lifeQuotes} />
+          </Suspense>
         </section>
         <section className={styles.sectionBottom}>
           <label htmlFor="time" className={styles.label}>
