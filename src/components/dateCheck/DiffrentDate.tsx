@@ -86,11 +86,13 @@ const DiffrentDate = () => {
       <article>
         {diffState?.result && (
           <>
-            {diffState?.result?.year && <span>{diffState?.result?.year}</span>}
-            {diffState?.result?.month && (
-              <span>{diffState?.result?.month}</span>
+            {diffState?.result?.year && (
+              <span>{diffState?.result?.year} 년</span>
             )}
-            <span>{diffState.result.day}</span>
+            {diffState?.result?.month && (
+              <span>{diffState?.result?.month} 개월</span>
+            )}
+            <span>{diffState.result.day} 일</span>
           </>
         )}
       </article>
