@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+
 import { article } from "styles/dateCheck/style.css";
 
 interface DateContainerType {
