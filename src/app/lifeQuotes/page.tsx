@@ -1,12 +1,15 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { Suspense } from "react";
 
-import LifeQuotesMessage from "components/lifeQuotes/Message";
 import useLifeQuotes from "hooks/lifeQuotes/useLifeQuotes";
 import useNotification from "hooks/lifeQuotes/useNotification";
 import useInit from "hooks/useInit";
 import * as styles from "styles/lifeQuotes/style.css";
+const LifeQuotesMessage = dynamic(
+  () => import("components/lifeQuotes/Message")
+);
 
 export default function LifeQuotes() {
   const mounted = useInit();
