@@ -1,4 +1,5 @@
 import { style, createTheme, globalStyle } from "@vanilla-extract/css";
+
 import { primary } from "styles/color.css";
 globalStyle("body", {
   margin: 0,
@@ -45,4 +46,5 @@ export const messageSection = style({
   flex: 1,
   display: "flex",
   justifyContent: "center",
+  minHeight: 300,
 });
