@@ -27,7 +27,7 @@ export default () => {
 
   const getData = async () => {
     try {
-      const res = await fetch("/api/lifeQuotes/");
+      const res = await fetch("/api/lifeQuotes/", { cache: "no-store" });
       const { data } = await res.json();
       getNewMessage(data);
     } catch (error) {
