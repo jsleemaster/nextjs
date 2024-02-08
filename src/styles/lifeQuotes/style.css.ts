@@ -30,6 +30,9 @@ export const sectionTitle = style({
   marginTop: 100,
   fontWeight: "bold",
   color: primary,
+  backgroundColor: "#000075",
+  borderRadius: 10,
+  padding: 10,
 });
 
 export const label = style({
