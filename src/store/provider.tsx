@@ -13,6 +13,7 @@ const roboto = Roboto({
   style: ["normal", "italic"],
   subsets: ["latin"],
   display: "swap",
+  preload: true,
 });
 
 // import { wrapper } from "store/configStore";
