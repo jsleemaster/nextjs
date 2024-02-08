@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
-import duration from "dayjs/plugin/duration";
-dayjs.extend(duration);
+import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
+dayjs.extend(isSameOrAfter);
+
 import { useReducer } from "react";
 
 interface DateState {
@@ -67,9 +68,16 @@ export default () => {
     const endDate = dayjs(
       `${diffState.end.year} ${diffState.end.month} ${diffState.end.day}`
     );
-    const day = endDate.diff(startDate, "day");
-    const year = endDate.diff(startDate, "year");
-    const month = endDate.diff(startDate, "month");
+    let start = startDate;
+    let end = endDate;
+    if (dayjs(startDate).isSameOrAfter(endDate)) {
+      start = endDate;
+      end = startDate;
+    }
+
+    const day = end.diff(start, "day");
+    const year = end.diff(start, "year");
+    const month = end.diff(start, "month");
 
     diffAction({ type: "result", result: { day, year, month } });
   };

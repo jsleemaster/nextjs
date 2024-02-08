@@ -83,7 +83,17 @@ const DiffrentDate = () => {
           }
         />
       </article>
-      <article>{diffState?.result && <>{diffState.result.day}</>}</article>
+      <article>
+        {diffState?.result && (
+          <>
+            {diffState?.result?.year && <span>{diffState?.result?.year}</span>}
+            {diffState?.result?.month && (
+              <span>{diffState?.result?.month}</span>
+            )}
+            <span>{diffState.result.day}</span>
+          </>
+        )}
+      </article>
       <article className={dateButtonContainer}>
         <button
           type="submit"
