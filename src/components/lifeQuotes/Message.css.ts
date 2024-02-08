@@ -1,7 +1,4 @@
 import { style } from "@vanilla-extract/css";
-export const scrollActive = style({
-  opacity: "0",
-});
 export const quotoesBox = style({
   color: "black",
   padding: 10,

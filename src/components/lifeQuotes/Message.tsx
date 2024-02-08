@@ -1,19 +1,8 @@
-import { useEffect, useState } from "react";
-
 import * as styles from "./Message.css";
 
 const Message = ({ lifeQuotes }) => {
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    setLoading(false);
-    setTimeout(() => {
-      setLoading(true);
-    }, 1000);
-  }, [lifeQuotes]);
   return (
-    <article
-      className={`${styles.quotoesBox} ${!loading ? styles.scrollActive : ""}`}
-    >
+    <article className={`${styles.quotoesBox}`}>
       <span className={styles.quotesTitle}>
         {lifeQuotes && lifeQuotes.title}
       </span>
