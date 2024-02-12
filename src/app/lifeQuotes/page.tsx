@@ -1,7 +1,6 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { Suspense } from "react";
 
 import useLifeQuotes from "hooks/lifeQuotes/useLifeQuotes";
 import useNotification from "hooks/lifeQuotes/useNotification";
