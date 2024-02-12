@@ -3,6 +3,7 @@
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import { Roboto } from "next/font/google";
+import Script from "next/script";
 import { ReactNode } from "react";
 import { Provider } from "react-redux";
 
@@ -35,6 +36,11 @@ export default function Providers({ children }: { children: ReactNode }) {
   return (
     <html lang="ko" className={roboto.className}>
       <link rel="icon" href="/favicon.ico" />
+      <Script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3829903653557809"
+        crossOrigin="anonymous"
+      ></Script>
       <body>
         <Provider store={store}>
           <AppContainer>{children}</AppContainer>
