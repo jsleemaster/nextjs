@@ -6,9 +6,11 @@ import useLifeQuotes from "hooks/lifeQuotes/useLifeQuotes";
 import useNotification from "hooks/lifeQuotes/useNotification";
 import useInit from "hooks/useInit";
 import * as styles from "styles/lifeQuotes/style.css";
+
+import Loading from "../loading";
 const LifeQuotesMessage = dynamic(
   () => import("components/lifeQuotes/Message"),
-  { ssr: false, loading: () => <div>로딩중</div> }
+  { ssr: false, loading: () => <Loading /> }
 );
 
 export default function LifeQuotes() {
