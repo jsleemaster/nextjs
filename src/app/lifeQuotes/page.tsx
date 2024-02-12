@@ -8,7 +8,8 @@ import useNotification from "hooks/lifeQuotes/useNotification";
 import useInit from "hooks/useInit";
 import * as styles from "styles/lifeQuotes/style.css";
 const LifeQuotesMessage = dynamic(
-  () => import("components/lifeQuotes/Message")
+  () => import("components/lifeQuotes/Message"),
+  { ssr: false, loading: () => <div>로딩중</div> }
 );
 
 export default function LifeQuotes() {
@@ -25,9 +26,7 @@ export default function LifeQuotes() {
           <section>{notificationErrorMessage}</section>
         )}
         <section className={styles.messageSection}>
-          <Suspense fallback={<article>loading..</article>}>
-            <LifeQuotesMessage lifeQuotes={lifeQuotes} />
-          </Suspense>
+          <LifeQuotesMessage lifeQuotes={lifeQuotes} />
         </section>
         <section className={styles.sectionBottom}>
           <label htmlFor="time" className={styles.label}>

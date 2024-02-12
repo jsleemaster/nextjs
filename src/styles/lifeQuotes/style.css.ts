@@ -29,8 +29,8 @@ export const sectionTitle = style({
   fontSize: 22,
   marginTop: 100,
   fontWeight: "bold",
-  color: primary,
-  backgroundColor: "#000075",
+  color: "#fff",
+  backgroundColor: "#000",
   borderRadius: 10,
   padding: 10,
 });
