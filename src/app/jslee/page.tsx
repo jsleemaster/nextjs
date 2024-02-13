@@ -58,7 +58,7 @@ const technology = [
 ];
 const career = [
   {
-    subtitle: "2021. 08 ~ 재직 중",
+    subtitle: "2021. 08 ~ 2023. 11",
     name: "디벨로퍼그룹",
   },
   {
