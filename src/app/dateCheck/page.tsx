@@ -1,5 +1,10 @@
 "use client";
 
+import DateCheckContainer from "components/dateCheck/DateCheckContainer";
+import DiffrentDate from "components/dateCheck/DiffrentDate";
+import useDateCheck from "hooks/dateCheck/useDateCheck";
+import { diffDay, year } from "hooks/useDayjs";
+import useInit from "hooks/useInit";
 import {
   main,
   header,
@@ -8,12 +13,6 @@ import {
   section,
   nextDateSpan,
 } from "styles/dateCheck/style.css";
-
-import DateCheckContainer from "components/dateCheck/DateCheckContainer";
-import DiffrentDate from "components/dateCheck/DiffrentDate";
-import useDateCheck from "hooks/dateCheck/useDateCheck";
-import { diffDay, year } from "hooks/useDayjs";
-import useInit from "hooks/useInit";
 
 export default function DateCheck() {
   const mounted = useInit();

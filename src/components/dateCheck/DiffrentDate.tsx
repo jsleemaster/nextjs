@@ -92,7 +92,7 @@ const DiffrentDate = () => {
             {diffState?.result?.month && (
               <span>{diffState?.result?.month} 개월</span>
             )}
-            <span>{diffState.result.day} 일</span>
+            {diffState?.result?.day && <span>{diffState?.result?.day} 일</span>}
           </>
         )}
       </article>
