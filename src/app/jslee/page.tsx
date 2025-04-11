@@ -72,14 +72,6 @@ const introduce = [
     name: "이순명",
   },
   {
-    subtitle: "Birth",
-    name: "1994. 12. 24",
-  },
-  {
-    subtitle: "Hp",
-    name: "010-2934-4579",
-  },
-  {
     subtitle: "Email",
     name: "jsleemaster@gmail.com",
     type: "email",
